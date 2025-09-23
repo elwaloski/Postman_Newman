@@ -1,0 +1,76 @@
+{
+	"info": {
+		"_postman_id": "fa4de094-339a-4e14-a824-b749ba62bbdc",
+		"name": "wssConsultaFolio",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17083207"
+	},
+	"item": [
+		{
+			"name": "Consulta 33 - OK",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "text/xml",
+						"type": "text"
+					},
+					{
+						"key": "SOAPAction",
+						"value": "http://dbnetcorp.com/wss/wssConsultaFolio/ConsultaFolio",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:wss=\"http://dbnetcorp.com/wss/wssConsultaFolio\">\r\n   <soapenv:Header/>\r\n   <soapenv:Body>\r\n      <wss:ConsultaFolio>\r\n         <wss:RutEmisor>83498900</wss:RutEmisor>\r\n         <wss:Tipo>33</wss:Tipo>\r\n         <wss:FolioCliente>2024050602</wss:FolioCliente>\r\n      </wss:ConsultaFolio>\r\n   </soapenv:Body>\r\n</soapenv:Envelope>",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url_wss}}",
+					"host": [
+						"{{url_wss}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url_wss",
+			"value": "",
+			"type": "string"
+		}
+	]
+}

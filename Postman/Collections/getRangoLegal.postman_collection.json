@@ -1,0 +1,1957 @@
+{
+	"info": {
+		"_postman_id": "fcded93a-08a8-46c8-bd5d-2f49c65f7200",
+		"name": "getRangoLegal",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17083207"
+	},
+	"item": [
+		{
+			"name": "CAF",
+			"item": [
+				{
+					"name": "REC-1535 - OT24420946",
+					"item": [
+						{
+							"name": "CP_1_TipoDoc33",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"CA_1_CódigoHttp_200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"CA_2_TiempoRespuesta_200\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"CA_3_ExtensiónArchivoCaf_zip\", function(){\r",
+											"    pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/zip')\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{Token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://QA-CLOUD-005.cl.dbnetcorp.com/getRangoLegal/api/CAF?tipoDocumento=33&folioActual=1&maximoArchivos=100",
+									"protocol": "https",
+									"host": [
+										"QA-CLOUD-005",
+										"cl",
+										"dbnetcorp",
+										"com"
+									],
+									"path": [
+										"getRangoLegal",
+										"api",
+										"CAF"
+									],
+									"query": [
+										{
+											"key": "tipoDocumento",
+											"value": "33"
+										},
+										{
+											"key": "folioActual",
+											"value": "1"
+										},
+										{
+											"key": "maximoArchivos",
+											"value": "100"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "CP_2_TipoDoc34",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"CA_1_CódigoHttp_200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"CA_2_TiempoRespuesta_200\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"CA_3_ExtensiónArchivoCaf_zip\", function(){\r",
+											"    pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/zip')\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://{{server}}/getRangoLegal/api/CAF?tipoDocumento=33&folioActual=0&maximoArchivos=100",
+									"protocol": "https",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"getRangoLegal",
+										"api",
+										"CAF"
+									],
+									"query": [
+										{
+											"key": "tipoDocumento",
+											"value": "33"
+										},
+										{
+											"key": "folioActual",
+											"value": "0"
+										},
+										{
+											"key": "maximoArchivos",
+											"value": "100"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "CP_3_TipoDoc43",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"CA_1_CódigoHttp_200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"CA_2_TiempoRespuesta_200\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"CA_3_ExtensiónArchivoCaf_zip\", function(){\r",
+											"    pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/zip')\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://{{server}}/getRangoLegal/api/CAF?tipoDocumento=33&folioActual=0&maximoArchivos=100",
+									"protocol": "https",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"getRangoLegal",
+										"api",
+										"CAF"
+									],
+									"query": [
+										{
+											"key": "tipoDocumento",
+											"value": "33"
+										},
+										{
+											"key": "folioActual",
+											"value": "0"
+										},
+										{
+											"key": "maximoArchivos",
+											"value": "100"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "CP_4_TipoDoc46",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"CA_1_CódigoHttp_200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"CA_2_TiempoRespuesta_200\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"CA_3_ExtensiónArchivoCaf_zip\", function(){\r",
+											"    pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/zip')\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://{{server}}/getRangoLegal/api/CAF?tipoDocumento=33&folioActual=0&maximoArchivos=100",
+									"protocol": "https",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"getRangoLegal",
+										"api",
+										"CAF"
+									],
+									"query": [
+										{
+											"key": "tipoDocumento",
+											"value": "33"
+										},
+										{
+											"key": "folioActual",
+											"value": "0"
+										},
+										{
+											"key": "maximoArchivos",
+											"value": "100"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "CP_5_TipoDoc52",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"CA_1_CódigoHttp_200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"CA_2_TiempoRespuesta_200\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"CA_3_ExtensiónArchivoCaf_zip\", function(){\r",
+											"    pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/zip')\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://{{server}}/getRangoLegal/api/CAF?tipoDocumento=33&folioActual=0&maximoArchivos=100",
+									"protocol": "https",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"getRangoLegal",
+										"api",
+										"CAF"
+									],
+									"query": [
+										{
+											"key": "tipoDocumento",
+											"value": "33"
+										},
+										{
+											"key": "folioActual",
+											"value": "0"
+										},
+										{
+											"key": "maximoArchivos",
+											"value": "100"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "CP_6_TipoDoc56",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"CA_1_CódigoHttp_200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"CA_2_TiempoRespuesta_200\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"CA_3_ExtensiónArchivoCaf_zip\", function(){\r",
+											"    pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/zip')\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://{{server}}/getRangoLegal/api/CAF?tipoDocumento=33&folioActual=0&maximoArchivos=100",
+									"protocol": "https",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"getRangoLegal",
+										"api",
+										"CAF"
+									],
+									"query": [
+										{
+											"key": "tipoDocumento",
+											"value": "33"
+										},
+										{
+											"key": "folioActual",
+											"value": "0"
+										},
+										{
+											"key": "maximoArchivos",
+											"value": "100"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "CP_7_TipoDoc61",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"CA_1_CódigoHttp_200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"CA_2_TiempoRespuesta_200\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"CA_3_ExtensiónArchivoCaf_zip\", function(){\r",
+											"    pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/zip')\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://{{server}}/getRangoLegal/api/CAF?tipoDocumento=33&folioActual=0&maximoArchivos=100",
+									"protocol": "https",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"getRangoLegal",
+										"api",
+										"CAF"
+									],
+									"query": [
+										{
+											"key": "tipoDocumento",
+											"value": "33"
+										},
+										{
+											"key": "folioActual",
+											"value": "0"
+										},
+										{
+											"key": "maximoArchivos",
+											"value": "100"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "CP_8_TipoDoc110",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"CA_1_CódigoHttp_200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"CA_2_TiempoRespuesta_200\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"CA_3_ExtensiónArchivoCaf_zip\", function(){\r",
+											"    pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/zip')\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://{{server}}/getRangoLegal/api/CAF?tipoDocumento=33&folioActual=0&maximoArchivos=100",
+									"protocol": "https",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"getRangoLegal",
+										"api",
+										"CAF"
+									],
+									"query": [
+										{
+											"key": "tipoDocumento",
+											"value": "33"
+										},
+										{
+											"key": "folioActual",
+											"value": "0"
+										},
+										{
+											"key": "maximoArchivos",
+											"value": "100"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "CP_9_TipoDoc111",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"CA_1_CódigoHttp_200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"CA_2_TiempoRespuesta_200\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"CA_3_ExtensiónArchivoCaf_zip\", function(){\r",
+											"    pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/zip')\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://{{server}}/getRangoLegal/api/CAF?tipoDocumento=33&folioActual=0&maximoArchivos=100",
+									"protocol": "https",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"getRangoLegal",
+										"api",
+										"CAF"
+									],
+									"query": [
+										{
+											"key": "tipoDocumento",
+											"value": "33"
+										},
+										{
+											"key": "folioActual",
+											"value": "0"
+										},
+										{
+											"key": "maximoArchivos",
+											"value": "100"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "CP_10_TipoDoc112",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"CA_1_CódigoHttp_200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"CA_2_TiempoRespuesta_200\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"CA_3_ExtensiónArchivoCaf_zip\", function(){\r",
+											"    pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/zip')\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://{{server}}/getRangoLegal/api/CAF?tipoDocumento=33&folioActual=0&maximoArchivos=100",
+									"protocol": "https",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"getRangoLegal",
+										"api",
+										"CAF"
+									],
+									"query": [
+										{
+											"key": "tipoDocumento",
+											"value": "33"
+										},
+										{
+											"key": "folioActual",
+											"value": "0"
+										},
+										{
+											"key": "maximoArchivos",
+											"value": "100"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "CP_11_TipoDoc39",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"CA_1_CódigoHttp_200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"CA_2_TiempoRespuesta_200\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"CA_3_ExtensiónArchivoCaf_zip\", function(){\r",
+											"    pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/zip')\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://{{server}}/getRangoLegal/api/CAF?tipoDocumento=33&folioActual=0&maximoArchivos=100",
+									"protocol": "https",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"getRangoLegal",
+										"api",
+										"CAF"
+									],
+									"query": [
+										{
+											"key": "tipoDocumento",
+											"value": "33"
+										},
+										{
+											"key": "folioActual",
+											"value": "0"
+										},
+										{
+											"key": "maximoArchivos",
+											"value": "100"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "CP_12_TipoDoc41",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"CA_1_CódigoHttp_200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"CA_2_TiempoRespuesta_200\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"CA_3_ExtensiónArchivoCaf_zip\", function(){\r",
+											"    pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/zip')\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://{{server}}/getRangoLegal/api/CAF?tipoDocumento=33&folioActual=0&maximoArchivos=100",
+									"protocol": "https",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"getRangoLegal",
+										"api",
+										"CAF"
+									],
+									"query": [
+										{
+											"key": "tipoDocumento",
+											"value": "33"
+										},
+										{
+											"key": "folioActual",
+											"value": "0"
+										},
+										{
+											"key": "maximoArchivos",
+											"value": "100"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "CP_13_OtraEmpresa",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"CA_1_CódigoHttp_200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"CA_2_TiempoRespuesta_200\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"CA_3_ExtensiónArchivoCaf_zip\", function(){\r",
+											"    pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/zip')\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"var server = pm.environment.get('server')\r",
+											"var rutEmpresa = 96929960 //esta en duro ya que yo probé con la empresa Orizon\r",
+											"var authEmpresa = 'MTIzNDU2' \r",
+											"\r",
+											"const echoPostRequest = {\r",
+											"  url: 'https://' + server + '/API/dbnetJwt/Login/getToken',\r",
+											"  method: 'POST',\r",
+											"  header: 'Content-Type:application/json',\r",
+											"  body: \r",
+											"    {\r",
+											"    mode: 'application/json',\r",
+											"    raw: JSON.stringify(\r",
+											"        {\r",
+											"            \"GetToken\":\r",
+											"            {\r",
+											"                \"IdentificadorEmpresa\": \"\" + rutEmpresa + \"\",\r",
+											"                \"UsuarioEmprea\": \"demo\",\r",
+											"                \"AutorizacionEmpresa\": \"\" + authEmpresa + \"\"\r",
+											"            }\r",
+											"        })\r",
+											"    }\r",
+											"};\r",
+											"\r",
+											"pm.sendRequest(echoPostRequest, \r",
+											"    function (err, res) {\r",
+											"        if (err === null) {\r",
+											"            var responseJson = res.json();\r",
+											"            pm.environment.set('token',responseJson.Token)\r",
+											"        }\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://{{server}}/getRangoLegal/api/CAF?tipoDocumento=33&folioActual=0&maximoArchivos=100",
+									"protocol": "https",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"getRangoLegal",
+										"api",
+										"CAF"
+									],
+									"query": [
+										{
+											"key": "tipoDocumento",
+											"value": "33"
+										},
+										{
+											"key": "folioActual",
+											"value": "0"
+										},
+										{
+											"key": "maximoArchivos",
+											"value": "100"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "CP_14_OtroHolding",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"CA_1_CódigoHttp_200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"CA_2_TiempoRespuesta_200\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"CA_3_ExtensiónArchivoCaf_zip\", function(){\r",
+											"    pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/zip')\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"var server = pm.environment.get('server')\r",
+											"var rutEmpresa = 76945424 //esta en duro ya que yo probé con la empresa prod_test1\r",
+											"var authEmpresa = 'MTIzNDU2' \r",
+											"\r",
+											"const echoPostRequest = {\r",
+											"  url: 'https://' + server + '/API/dbnetJwt/Login/getToken',\r",
+											"  method: 'POST',\r",
+											"  header: 'Content-Type:application/json',\r",
+											"  body: \r",
+											"    {\r",
+											"    mode: 'application/json',\r",
+											"    raw: JSON.stringify(\r",
+											"        {\r",
+											"            \"GetToken\":\r",
+											"            {\r",
+											"                \"IdentificadorEmpresa\": \"\" + rutEmpresa + \"\",\r",
+											"                \"UsuarioEmprea\": \"demo\",\r",
+											"                \"AutorizacionEmpresa\": \"\" + authEmpresa + \"\"\r",
+											"            }\r",
+											"        })\r",
+											"    }\r",
+											"};\r",
+											"\r",
+											"pm.sendRequest(echoPostRequest, \r",
+											"    function (err, res) {\r",
+											"        if (err === null) {\r",
+											"            var responseJson = res.json();\r",
+											"            pm.environment.set('token',responseJson.Token)\r",
+											"        }\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://{{server}}/getRangoLegal/api/CAF?tipoDocumento=33&folioActual=0&maximoArchivos=100",
+									"protocol": "https",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"getRangoLegal",
+										"api",
+										"CAF"
+									],
+									"query": [
+										{
+											"key": "tipoDocumento",
+											"value": "33"
+										},
+										{
+											"key": "folioActual",
+											"value": "0"
+										},
+										{
+											"key": "maximoArchivos",
+											"value": "100"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "CP_15_TokenIncorrecto",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"CA_1_CódigoHttp_401\", function () {\r",
+											"    pm.response.to.have.status(401);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"CA_2_TiempoRespuesta_200\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "djdklasjldjaslkjdklasjlkdkljaskldklasjdkl",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://{{server}}/getRangoLegal/api/CAF?tipoDocumento=33&folioActual=0&maximoArchivos=100",
+									"protocol": "https",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"getRangoLegal",
+										"api",
+										"CAF"
+									],
+									"query": [
+										{
+											"key": "tipoDocumento",
+											"value": "33"
+										},
+										{
+											"key": "folioActual",
+											"value": "0"
+										},
+										{
+											"key": "maximoArchivos",
+											"value": "100"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "CP_16_TokenVacio",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"CA_1_CódigoHttp_401\", function () {\r",
+											"    pm.response.to.have.status(401);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"CA_2_TiempoRespuesta_200\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://{{server}}/getRangoLegal/api/CAF?tipoDocumento=33&folioActual=0&maximoArchivos=100",
+									"protocol": "https",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"getRangoLegal",
+										"api",
+										"CAF"
+									],
+									"query": [
+										{
+											"key": "tipoDocumento",
+											"value": "33"
+										},
+										{
+											"key": "folioActual",
+											"value": "0"
+										},
+										{
+											"key": "maximoArchivos",
+											"value": "100"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "CP_17_EstaCaf=DIG",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"CA_1_CódigoHttp_404\", function () {\r",
+											"    pm.response.to.have.status(404); //MAL definio 404 cuando no encuentra resultado valido\r",
+											"});\r",
+											"\r",
+											"pm.test(\"CA_2_TiempoRespuesta_200\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"CA_3_CafNoCumpleCriterios\", function(){\r",
+											"    var jsonData = pm.response.json()\r",
+											"    pm.expect(jsonData.Status).to.eql('NOK')\r",
+											"    pm.expect(jsonData.Value).to.eql('No se encontraron CAFs que cumplan el criterio solicitado')\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://{{server}}/getRangoLegal/api/CAF?tipoDocumento=33&folioActual=0&maximoArchivos=100",
+									"protocol": "https",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"getRangoLegal",
+										"api",
+										"CAF"
+									],
+									"query": [
+										{
+											"key": "tipoDocumento",
+											"value": "33"
+										},
+										{
+											"key": "folioActual",
+											"value": "0"
+										},
+										{
+											"key": "maximoArchivos",
+											"value": "100"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "CP_18_EstaCaf=UTI",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"CA_1_CódigoHttp_404\", function () {\r",
+											"    pm.response.to.have.status(404); //MAL definio 404 cuando no encuentra resultado valido\r",
+											"});\r",
+											"\r",
+											"pm.test(\"CA_2_TiempoRespuesta_200\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"CA_3_CafNoCumpleCriterios\", function(){\r",
+											"    var jsonData = pm.response.json()\r",
+											"    pm.expect(jsonData.Status).to.eql('NOK')\r",
+											"    pm.expect(jsonData.Value).to.eql('No se encontraron CAFs que cumplan el criterio solicitado')\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://{{server}}/getRangoLegal/api/CAF?tipoDocumento=33&folioActual=0&maximoArchivos=100",
+									"protocol": "https",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"getRangoLegal",
+										"api",
+										"CAF"
+									],
+									"query": [
+										{
+											"key": "tipoDocumento",
+											"value": "33"
+										},
+										{
+											"key": "folioActual",
+											"value": "0"
+										},
+										{
+											"key": "maximoArchivos",
+											"value": "100"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "CP_19_EstaCaf=VEN",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"CA_1_CódigoHttp_404\", function () {\r",
+											"    pm.response.to.have.status(404); //MAL definio 404 cuando no encuentra resultado valido\r",
+											"});\r",
+											"\r",
+											"pm.test(\"CA_2_TiempoRespuesta_200\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"CA_3_CafNoCumpleCriterios\", function(){\r",
+											"    var jsonData = pm.response.json()\r",
+											"    pm.expect(jsonData.Status).to.eql('NOK')\r",
+											"    pm.expect(jsonData.Value).to.eql('No se encontraron CAFs que cumplan el criterio solicitado')\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://{{server}}/getRangoLegal/api/CAF?tipoDocumento=33&folioActual=0&maximoArchivos=100",
+									"protocol": "https",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"getRangoLegal",
+										"api",
+										"CAF"
+									],
+									"query": [
+										{
+											"key": "tipoDocumento",
+											"value": "33"
+										},
+										{
+											"key": "folioActual",
+											"value": "0"
+										},
+										{
+											"key": "maximoArchivos",
+											"value": "100"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "CP_20_FolioActual > Existente",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"CA_1_CódigoHttp_404\", function () {\r",
+											"    pm.response.to.have.status(404); //MAL definio 404 cuando no encuentra resultado valido\r",
+											"});\r",
+											"\r",
+											"pm.test(\"CA_2_TiempoRespuesta_200\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"CA_3_CafNoCumpleCriterios\", function(){\r",
+											"    var jsonData = pm.response.json()\r",
+											"    pm.expect(jsonData.Status).to.eql('NOK')\r",
+											"    pm.expect(jsonData.Value).to.eql('No se encontraron CAFs que cumplan el criterio solicitado')\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://{{server}}/getRangoLegal/api/CAF?tipoDocumento=33&folioActual=100000000&maximoArchivos=100",
+									"protocol": "https",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"getRangoLegal",
+										"api",
+										"CAF"
+									],
+									"query": [
+										{
+											"key": "tipoDocumento",
+											"value": "33"
+										},
+										{
+											"key": "folioActual",
+											"value": "100000000"
+										},
+										{
+											"key": "maximoArchivos",
+											"value": "100"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "CP_21_FolioActual = Vacio",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"//Hector Parra, indico que cuando no existiera ningun doc se trajera todo lo que existe \r",
+											"\r",
+											"pm.test(\"CA_1_CódigoHttp_200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"CA_2_TiempoRespuesta_200\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"CA_3_ExtensiónArchivoCaf_zip\", function(){\r",
+											"    pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/zip')\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://{{server}}/getRangoLegal/api/CAF?tipoDocumento=33&maximoArchivos=100",
+									"protocol": "https",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"getRangoLegal",
+										"api",
+										"CAF"
+									],
+									"query": [
+										{
+											"key": "tipoDocumento",
+											"value": "33"
+										},
+										{
+											"key": "folioActual",
+											"value": "1000000000",
+											"disabled": true
+										},
+										{
+											"key": "maximoArchivos",
+											"value": "100"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "CP_22_FolioActual = Texto",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"CA_1_CódigoHttp_404\", function () {\r",
+											"    pm.response.to.have.status(400); //MAL definio 404 cuando no encuentra resultado valido\r",
+											"});\r",
+											"\r",
+											"pm.test(\"CA_2_TiempoRespuesta_200\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"CA_3_ExtensiónArchivoCaf_zip\", function(){\r",
+											"    var jsonData = pm.response.json()\r",
+											"    pm.expect(jsonData.errors.folioActual[0]).to.eql('The value \\'cien\\' is not valid.')\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://{{server}}/getRangoLegal/api/CAF?tipoDocumento=33&folioActual=cien&maximoArchivos=100",
+									"protocol": "https",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"getRangoLegal",
+										"api",
+										"CAF"
+									],
+									"query": [
+										{
+											"key": "tipoDocumento",
+											"value": "33"
+										},
+										{
+											"key": "folioActual",
+											"value": "cien"
+										},
+										{
+											"key": "maximoArchivos",
+											"value": "100"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "CP_23_TipoDocInvalido",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"CA_1_CódigoHttp_404\", function () {\r",
+											"    pm.response.to.have.status(404); //MAL definio 404 cuando no encuentra resultado valido\r",
+											"});\r",
+											"\r",
+											"pm.test(\"CA_2_TiempoRespuesta_200\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"CA_3_CafNoCumpleCriterios\", function(){\r",
+											"    var jsonData = pm.response.json()\r",
+											"    pm.expect(jsonData.Status).to.eql('NOK')\r",
+											"    pm.expect(jsonData.Value).to.eql('No se encontraron CAFs que cumplan el criterio solicitado')\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://{{server}}/getRangoLegal/api/CAF?tipoDocumento=36&folioActual=0&maximoArchivos=100",
+									"protocol": "https",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"getRangoLegal",
+										"api",
+										"CAF"
+									],
+									"query": [
+										{
+											"key": "tipoDocumento",
+											"value": "36"
+										},
+										{
+											"key": "folioActual",
+											"value": "0"
+										},
+										{
+											"key": "maximoArchivos",
+											"value": "100"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "CP_24_TipoDocVacio",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"CA_1_CódigoHttp_404\", function () {\r",
+											"    pm.response.to.have.status(404); //MAL definio 404 cuando no encuentra resultado valido\r",
+											"});\r",
+											"\r",
+											"pm.test(\"CA_2_TiempoRespuesta_200\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"CA_3_CafNoCumpleCriterios\", function(){\r",
+											"    var jsonData = pm.response.json()\r",
+											"    pm.expect(jsonData.Status).to.eql('NOK')\r",
+											"    pm.expect(jsonData.Value).to.eql('No se encontraron CAFs que cumplan el criterio solicitado')\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://{{server}}/getRangoLegal/api/CAF?folioActual=0&maximoArchivos=100",
+									"protocol": "https",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"getRangoLegal",
+										"api",
+										"CAF"
+									],
+									"query": [
+										{
+											"key": "tipoDocumento",
+											"value": "33",
+											"disabled": true
+										},
+										{
+											"key": "folioActual",
+											"value": "0"
+										},
+										{
+											"key": "maximoArchivos",
+											"value": "100"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "CP_25_TipoDocTexto",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"CA_1_CódigoHttp_404\", function () {\r",
+											"    pm.response.to.have.status(400); //MAL definio 404 cuando no encuentra resultado valido\r",
+											"});\r",
+											"\r",
+											"pm.test(\"CA_2_TiempoRespuesta_200\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"CA_3_ExtensiónArchivoCaf_zip\", function(){\r",
+											"    var jsonData = pm.response.json()\r",
+											"    pm.expect(jsonData.errors.tipoDocumento[0]).to.eql('The value \\'texto\\' is not valid.')\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://{{server}}/getRangoLegal/api/CAF?tipoDocumento=texto&folioActual=0&maximoArchivos=100",
+									"protocol": "https",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"getRangoLegal",
+										"api",
+										"CAF"
+									],
+									"query": [
+										{
+											"key": "tipoDocumento",
+											"value": "texto"
+										},
+										{
+											"key": "folioActual",
+											"value": "0"
+										},
+										{
+											"key": "maximoArchivos",
+											"value": "100"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"var server = pm.environment.get('server')",
+					"var rutEmpresa = pm.environment.get('rutEmpresa')",
+					"var authEmpresa = pm.environment.get('authEmpresa')",
+					"",
+					"const echoPostRequest = {",
+					"  url: 'https://' + server + '/API/dbnetJwt/Login/getToken',",
+					"  method: 'POST',",
+					"  header: 'Content-Type:application/json',",
+					"  body: ",
+					"    {",
+					"    mode: 'application/json',",
+					"    raw: JSON.stringify(",
+					"        {\"GetToken\":{\"IdentificadorEmpresa\": \"78079790\",",
+					"\t\t\t\"UsuarioEmpresa\": \"demo\",",
+					"\t\t\t\"AutorizacionEmpresa\": \"MTIzNDU2\"}})",
+					"    }",
+					"};",
+					"",
+					"pm.sendRequest(echoPostRequest, ",
+					"    function (err, res) {",
+					"        if (err === null) {",
+					"            var responseJson = res.json();",
+					"            pm.environment.set('token',responseJson.Token)",
+					"        }else{",
+					"            console.error(err)",
+					"        }",
+					"});"
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
