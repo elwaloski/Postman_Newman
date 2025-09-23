@@ -1,0 +1,3584 @@
+{
+	"info": {
+		"_postman_id": "f9f761bd-81d7-4983-9d98-6f28ee49dc67",
+		"name": "SEMDTE",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "40302661"
+	},
+	"item": [
+		{
+			"name": "Frontend",
+			"item": [
+				{
+					"name": "API Consulta DTE",
+					"item": [
+						{
+							"name": "Positivos",
+							"item": [
+								{
+									"name": "rango de fechas 4 años",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 200\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"let response = pm.response.json(); // Convierte la respuesta a JSON\r",
+													"let firstMatch = response.value.find(item => item.RutEmisor === \"78079790-8\"); // Encuentra el primer elemento\r",
+													"let x = \"78079790-8\"; // Define la variable x al lo esperado\r",
+													"\r",
+													"if (firstMatch) {\r",
+													"    pm.test(`El rut Emisor esperado es  (${x}) el cual es igual al de la respuesta  (${firstMatch.RutEmisor})`, function () {\r",
+													"        pm.expect(firstMatch.RutEmisor).to.eql(x); // Verifica que x sea igual a RutEmisor\r",
+													"    });\r",
+													"} else {\r",
+													"    console.log(\"No se encontró ningún elemento con RutEmisor = '78079790-8'\");\r",
+													"    pm.test(\"No se encontró ningún elemento con RutEmisor\", function () {\r",
+													"        pm.expect(false).to.be.true; // Fuerza el fallo del test\r",
+													"    });\r",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{TokenMaestro}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "https://semdte-qa-apiconsultadte.azurewebsites.net/odata/ControlDte?RutEmisor=78079790-8&FechaEmisionDesde=2020-01-01&FechaEmisionHasta=2024-12-31",
+											"protocol": "https",
+											"host": [
+												"semdte-qa-apiconsultadte",
+												"azurewebsites",
+												"net"
+											],
+											"path": [
+												"odata",
+												"ControlDte"
+											],
+											"query": [
+												{
+													"key": "$count",
+													"value": "true",
+													"disabled": true
+												},
+												{
+													"key": "RutEmisor",
+													"value": "78079790-8"
+												},
+												{
+													"key": "FechaEmisionDesde",
+													"value": "2020-01-01"
+												},
+												{
+													"key": "FechaEmisionHasta",
+													"value": "2024-12-31"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Contar Todos los documentos consultados",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 200\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"let response = pm.response.json(); // Convierte la respuesta a JSON\r",
+													"let firstMatch = response.value.find(item => item.RutEmisor === \"78079790-8\"); // Encuentra el primer elemento\r",
+													"let x = \"78079790-8\"; // Define la variable x al lo esperado\r",
+													"\r",
+													"if (firstMatch) {\r",
+													"    pm.test(`El rut Emisor esperado es  (${x}) el cual es igual al de la respuesta  (${firstMatch.RutEmisor})`, function () {\r",
+													"        pm.expect(firstMatch.RutEmisor).to.eql(x); // Verifica que x sea igual a RutEmisor\r",
+													"    });\r",
+													"} else {\r",
+													"    console.log(\"No se encontró ningún elemento con RutEmisor = '78079790-8'\");\r",
+													"    pm.test(\"No se encontró ningún elemento con RutEmisor\", function () {\r",
+													"        pm.expect(false).to.be.true; // Fuerza el fallo del test\r",
+													"    });\r",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{TokenMaestro}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "https://semdte-qa-apiconsultadte.azurewebsites.net/odata/ControlDte?$count=true&RutEmisor=78079790-8&FechaEmisionDesde=2020-01-01&FechaEmisionHasta=2024-12-31",
+											"protocol": "https",
+											"host": [
+												"semdte-qa-apiconsultadte",
+												"azurewebsites",
+												"net"
+											],
+											"path": [
+												"odata",
+												"ControlDte"
+											],
+											"query": [
+												{
+													"key": "$count",
+													"value": "true"
+												},
+												{
+													"key": "RutEmisor",
+													"value": "78079790-8"
+												},
+												{
+													"key": "FechaEmisionDesde",
+													"value": "2020-01-01"
+												},
+												{
+													"key": "FechaEmisionHasta",
+													"value": "2024-12-31"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "rango de fechas 3 años",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 200\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"let response = pm.response.json(); // Convierte la respuesta a JSON\r",
+													"let firstMatch = response.value.find(item => item.RutEmisor === \"78079790-8\"); // Encuentra el primer elemento\r",
+													"let x = \"78079790-8\"; // Define la variable x al lo esperado\r",
+													"\r",
+													"if (firstMatch) {\r",
+													"    pm.test(`El rut Emisor esperado es  (${x}) el cual es igual al de la respuesta  (${firstMatch.RutEmisor})`, function () {\r",
+													"        pm.expect(firstMatch.RutEmisor).to.eql(x); // Verifica que x sea igual a RutEmisor\r",
+													"    });\r",
+													"} else {\r",
+													"    console.log(\"No se encontró ningún elemento con RutEmisor = '78079790-8'\");\r",
+													"    pm.test(\"No se encontró ningún elemento con RutEmisor\", function () {\r",
+													"        pm.expect(false).to.be.true; // Fuerza el fallo del test\r",
+													"    });\r",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{TokenMaestro}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "https://semdte-qa-apiconsultadte.azurewebsites.net/odata/ControlDte?$count=true&RutEmisor=78079790-8&FechaEmisionDesde=2021-01-01&FechaEmisionHasta=2024-12-31",
+											"protocol": "https",
+											"host": [
+												"semdte-qa-apiconsultadte",
+												"azurewebsites",
+												"net"
+											],
+											"path": [
+												"odata",
+												"ControlDte"
+											],
+											"query": [
+												{
+													"key": "$count",
+													"value": "true"
+												},
+												{
+													"key": "RutEmisor",
+													"value": "78079790-8"
+												},
+												{
+													"key": "FechaEmisionDesde",
+													"value": "2021-01-01"
+												},
+												{
+													"key": "FechaEmisionHasta",
+													"value": "2024-12-31"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "rango de fechas 2 años",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 200\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"let response = pm.response.json(); // Convierte la respuesta a JSON\r",
+													"let firstMatch = response.value.find(item => item.RutEmisor === \"78079790-8\"); // Encuentra el primer elemento\r",
+													"let x = \"78079790-8\"; // Define la variable x al lo esperado\r",
+													"\r",
+													"if (firstMatch) {\r",
+													"    pm.test(`El rut Emisor esperado es  (${x}) el cual es igual al de la respuesta  (${firstMatch.RutEmisor})`, function () {\r",
+													"        pm.expect(firstMatch.RutEmisor).to.eql(x); // Verifica que x sea igual a RutEmisor\r",
+													"    });\r",
+													"} else {\r",
+													"    console.log(\"No se encontró ningún elemento con RutEmisor = '78079790-8'\");\r",
+													"    pm.test(\"No se encontró ningún elemento con RutEmisor\", function () {\r",
+													"        pm.expect(false).to.be.true; // Fuerza el fallo del test\r",
+													"    });\r",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{TokenMaestro}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "https://semdte-qa-apiconsultadte.azurewebsites.net/odata/ControlDte?$count=true&RutEmisor=78079790-8&FechaEmisionDesde=2022-01-01&FechaEmisionHasta=2024-12-31",
+											"protocol": "https",
+											"host": [
+												"semdte-qa-apiconsultadte",
+												"azurewebsites",
+												"net"
+											],
+											"path": [
+												"odata",
+												"ControlDte"
+											],
+											"query": [
+												{
+													"key": "$count",
+													"value": "true"
+												},
+												{
+													"key": "RutEmisor",
+													"value": "78079790-8"
+												},
+												{
+													"key": "FechaEmisionDesde",
+													"value": "2022-01-01"
+												},
+												{
+													"key": "FechaEmisionHasta",
+													"value": "2024-12-31"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "rango de fechas 1 año",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 200\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"let response = pm.response.json(); // Convierte la respuesta a JSON\r",
+													"let firstMatch = response.value.find(item => item.RutEmisor === \"78079790-8\"); // Encuentra el primer elemento\r",
+													"let x = \"78079790-8\"; // Define la variable x al lo esperado\r",
+													"\r",
+													"if (firstMatch) {\r",
+													"    pm.test(`El rut Emisor esperado es  (${x}) el cual es igual al de la respuesta  (${firstMatch.RutEmisor})`, function () {\r",
+													"        pm.expect(firstMatch.RutEmisor).to.eql(x); // Verifica que x sea igual a RutEmisor\r",
+													"    });\r",
+													"} else {\r",
+													"    console.log(\"No se encontró ningún elemento con RutEmisor = '78079790-8'\");\r",
+													"    pm.test(\"No se encontró ningún elemento con RutEmisor\", function () {\r",
+													"        pm.expect(false).to.be.true; // Fuerza el fallo del test\r",
+													"    });\r",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{TokenMaestro}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "https://semdte-qa-apiconsultadte.azurewebsites.net/odata/ControlDte?$count=true&RutEmisor=78079790-8&FechaEmisionDesde=2023-01-01&FechaEmisionHasta=2024-12-31",
+											"protocol": "https",
+											"host": [
+												"semdte-qa-apiconsultadte",
+												"azurewebsites",
+												"net"
+											],
+											"path": [
+												"odata",
+												"ControlDte"
+											],
+											"query": [
+												{
+													"key": "$count",
+													"value": "true"
+												},
+												{
+													"key": "RutEmisor",
+													"value": "78079790-8"
+												},
+												{
+													"key": "FechaEmisionDesde",
+													"value": "2023-01-01"
+												},
+												{
+													"key": "FechaEmisionHasta",
+													"value": "2024-12-31"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "rango de fechas 1 mes",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 200\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"let response = pm.response.json(); // Convierte la respuesta a JSON\r",
+													"let firstMatch = response.value.find(item => item.RutEmisor === \"78079790-8\"); // Encuentra el primer elemento\r",
+													"let x = \"78079790-8\"; // Define la variable x al lo esperado\r",
+													"\r",
+													"if (firstMatch) {\r",
+													"    pm.test(`El rut Emisor esperado es  (${x}) el cual es igual al de la respuesta  (${firstMatch.RutEmisor})`, function () {\r",
+													"        pm.expect(firstMatch.RutEmisor).to.eql(x); // Verifica que x sea igual a RutEmisor\r",
+													"    });\r",
+													"} else {\r",
+													"    console.log(\"No se encontró ningún elemento con RutEmisor = '78079790-8'\");\r",
+													"    pm.test(\"No se encontró ningún elemento con RutEmisor\", function () {\r",
+													"        pm.expect(false).to.be.true; // Fuerza el fallo del test\r",
+													"    });\r",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{TokenMaestro}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "https://semdte-qa-apiconsultadte.azurewebsites.net/odata/ControlDte?$count=true&RutEmisor=78079790-8&FechaEmisionDesde=2024-11-30&FechaEmisionHasta=2024-12-31",
+											"protocol": "https",
+											"host": [
+												"semdte-qa-apiconsultadte",
+												"azurewebsites",
+												"net"
+											],
+											"path": [
+												"odata",
+												"ControlDte"
+											],
+											"query": [
+												{
+													"key": "$count",
+													"value": "true"
+												},
+												{
+													"key": "RutEmisor",
+													"value": "78079790-8"
+												},
+												{
+													"key": "FechaEmisionDesde",
+													"value": "2024-11-30"
+												},
+												{
+													"key": "FechaEmisionHasta",
+													"value": "2024-12-31"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Filtro MontoExento",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 200\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"let response = pm.response.json(); // Convierte la respuesta a JSON\r",
+													"let firstMatch = response.value.find(item => item.MontoExento === 1590000); // Encuentra el primer elemento\r",
+													"let x = 1590000; // Define la variable x al lo esperado\r",
+													"\r",
+													"if (firstMatch) {\r",
+													"    pm.test(`El MontoExento esperado es  (${x}) el cual es igual al de la respuesta  (${firstMatch.MontoExento})`, function () {\r",
+													"        pm.expect(firstMatch.MontoExento).to.eql(x); // Verifica que x sea igual a MontoExento\r",
+													"    });\r",
+													"} else {\r",
+													"    //console.log(\"No se encontró ningún elemento con MontoExento = '1590000'\");\r",
+													"    pm.test(\"No se encontró ningún elemento con MontoExento\", function () {\r",
+													"        pm.expect(false).to.be.true; // Fuerza el fallo del test\r",
+													"    });\r",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{TokenMaestro}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "https://semdte-qa-apiconsultadte.azurewebsites.net/odata/ControlDte?RutEmisor=78079790-8&FechaEmisionDesde=2020-01-01&FechaEmisionHasta=2024-12-31&filter=MontoExento eq 1590000",
+											"protocol": "https",
+											"host": [
+												"semdte-qa-apiconsultadte",
+												"azurewebsites",
+												"net"
+											],
+											"path": [
+												"odata",
+												"ControlDte"
+											],
+											"query": [
+												{
+													"key": "$count",
+													"value": "true",
+													"disabled": true
+												},
+												{
+													"key": "RutEmisor",
+													"value": "78079790-8"
+												},
+												{
+													"key": "FechaEmisionDesde",
+													"value": "2020-01-01"
+												},
+												{
+													"key": "FechaEmisionHasta",
+													"value": "2024-12-31"
+												},
+												{
+													"key": "filter",
+													"value": "MontoExento eq 1590000"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Filtro DteId",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 200\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"let response = pm.response.json(); // Convierte la respuesta a JSON\r",
+													"let firstMatch = response.value.find(item => item.DteId === 134); // Encuentra el primer elemento\r",
+													"let x = 134; // Define la variable x al lo esperado\r",
+													"\r",
+													"if (firstMatch) {\r",
+													"    pm.test(`El DteId esperado es  (${x}) el cual es igual al de la respuesta  (${firstMatch.DteId})`, function () {\r",
+													"        pm.expect(firstMatch.DteId).to.eql(x); // Verifica que x sea igual a DteId\r",
+													"    });\r",
+													"} else {\r",
+													"    //console.log(\"No se encontró ningún elemento con DteId = '134'\");\r",
+													"    pm.test(\"No se encontró ningún elemento con DteId\", function () {\r",
+													"        pm.expect(false).to.be.true; // Fuerza el fallo del test\r",
+													"    });\r",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{TokenMaestro}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "https://semdte-qa-apiconsultadte.azurewebsites.net/odata/ControlDte?RutEmisor=78079790-8&FechaEmisionDesde=2020-01-01&FechaEmisionHasta=2024-12-31&filter=DteId eq 134",
+											"protocol": "https",
+											"host": [
+												"semdte-qa-apiconsultadte",
+												"azurewebsites",
+												"net"
+											],
+											"path": [
+												"odata",
+												"ControlDte"
+											],
+											"query": [
+												{
+													"key": "$count",
+													"value": "true",
+													"disabled": true
+												},
+												{
+													"key": "RutEmisor",
+													"value": "78079790-8"
+												},
+												{
+													"key": "FechaEmisionDesde",
+													"value": "2020-01-01"
+												},
+												{
+													"key": "FechaEmisionHasta",
+													"value": "2024-12-31"
+												},
+												{
+													"key": "filter",
+													"value": "DteId eq 134"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Filtro Rut Emisor",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 200\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"let response = pm.response.json(); // Convierte la respuesta a JSON\r",
+													"let firstMatch = response.value.find(item => item.RutEmisor === \"78079790-8\"); // Encuentra el primer elemento\r",
+													"let x = \"78079790-8\"; // Define la variable x al lo esperado\r",
+													"\r",
+													"if (firstMatch) {\r",
+													"    pm.test(`El rut Emisor esperado es  (${x}) el cual es igual al de la respuesta  (${firstMatch.RutEmisor})`, function () {\r",
+													"        pm.expect(firstMatch.RutEmisor).to.eql(x); // Verifica que x sea igual a RutEmisor\r",
+													"    });\r",
+													"} else {\r",
+													"    console.log(\"No se encontró ningún elemento con RutEmisor = '78079790-8'\");\r",
+													"    pm.test(\"No se encontró ningún elemento con RutEmisor\", function () {\r",
+													"        pm.expect(false).to.be.true; // Fuerza el fallo del test\r",
+													"    });\r",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{TokenMaestro}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "https://semdte-qa-apiconsultadte.azurewebsites.net/odata/ControlDte?RutEmisor=78079790-8&FechaEmisionDesde=2020-01-01&FechaEmisionHasta=2024-12-31&filter=RutEmisor eq '78079790-8'",
+											"protocol": "https",
+											"host": [
+												"semdte-qa-apiconsultadte",
+												"azurewebsites",
+												"net"
+											],
+											"path": [
+												"odata",
+												"ControlDte"
+											],
+											"query": [
+												{
+													"key": "$count",
+													"value": "true",
+													"disabled": true
+												},
+												{
+													"key": "RutEmisor",
+													"value": "78079790-8"
+												},
+												{
+													"key": "FechaEmisionDesde",
+													"value": "2020-01-01"
+												},
+												{
+													"key": "FechaEmisionHasta",
+													"value": "2024-12-31"
+												},
+												{
+													"key": "filter",
+													"value": "RutEmisor eq '78079790-8'"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Filtro CodigoUsuario",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 200\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"let response = pm.response.json(); // Convierte la respuesta a JSON\r",
+													"let firstMatch = response.value.find(item => item.CodigoUsuario === \"SemCargaDocumento\"); // Encuentra el primer elemento\r",
+													"let x = \"SemCargaDocumento\"; // Define la variable x al lo esperado\r",
+													"\r",
+													"if (firstMatch) {\r",
+													"    pm.test(`El CodigoUsuario esperado es  (${x}) el cual es igual al de la respuesta  (${firstMatch.CodigoUsuario})`, function () {\r",
+													"        pm.expect(firstMatch.CodigoUsuario).to.eql(x); // Verifica que x sea igual a CodigoUsuario\r",
+													"    });\r",
+													"} else {\r",
+													"    console.log(\"No se encontró ningún elemento con CodigoUsuario = 'SemCargaDocumento'\");\r",
+													"    pm.test(\"No se encontró ningún elemento con CodigoUsuario\", function () {\r",
+													"        pm.expect(false).to.be.true; // Fuerza el fallo del test\r",
+													"    });\r",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{TokenMaestro}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "https://semdte-qa-apiconsultadte.azurewebsites.net/odata/ControlDte?RutEmisor=78079790-8&FechaEmisionDesde=2020-01-01&FechaEmisionHasta=2024-12-31&filter=CodigoUsuario eq 'SemCargaDocumento'",
+											"protocol": "https",
+											"host": [
+												"semdte-qa-apiconsultadte",
+												"azurewebsites",
+												"net"
+											],
+											"path": [
+												"odata",
+												"ControlDte"
+											],
+											"query": [
+												{
+													"key": "$count",
+													"value": "true",
+													"disabled": true
+												},
+												{
+													"key": "RutEmisor",
+													"value": "78079790-8"
+												},
+												{
+													"key": "FechaEmisionDesde",
+													"value": "2020-01-01"
+												},
+												{
+													"key": "FechaEmisionHasta",
+													"value": "2024-12-31"
+												},
+												{
+													"key": "filter",
+													"value": "CodigoUsuario eq 'SemCargaDocumento'"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Filtro TipoDocumento 33",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 200\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"let response = pm.response.json(); // Convierte la respuesta a JSON\r",
+													"let firstMatch = response.value.find(item => item.TipoDocumento === \"33\"); // Encuentra el primer elemento\r",
+													"let x = \"33\"; // Define la variable x al lo esperado\r",
+													"\r",
+													"if (firstMatch) {\r",
+													"    pm.test(`El TipoDocumento esperado es  (${x}) el cual es igual al de la respuesta  (${firstMatch.TipoDocumento})`, function () {\r",
+													"        pm.expect(firstMatch.TipoDocumento).to.eql(x); // Verifica que x sea igual a TipoDocumento\r",
+													"    });\r",
+													"} else {\r",
+													"    console.log(\"No se encontró ningún elemento con TipoDocumento = '33'\");\r",
+													"    pm.test(\"No se encontró ningún elemento con TipoDocumento\", function () {\r",
+													"        pm.expect(false).to.be.true; // Fuerza el fallo del test\r",
+													"    });\r",
+													"}\r",
+													"\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{TokenMaestro}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "https://semdte-qa-apiconsultadte.azurewebsites.net/odata/ControlDte?RutEmisor=78079790-8&FechaEmisionDesde=2020-01-01&FechaEmisionHasta=2024-12-31&filter=TipoDocumento eq '33'",
+											"protocol": "https",
+											"host": [
+												"semdte-qa-apiconsultadte",
+												"azurewebsites",
+												"net"
+											],
+											"path": [
+												"odata",
+												"ControlDte"
+											],
+											"query": [
+												{
+													"key": "$count",
+													"value": "true",
+													"disabled": true
+												},
+												{
+													"key": "RutEmisor",
+													"value": "78079790-8"
+												},
+												{
+													"key": "FechaEmisionDesde",
+													"value": "2020-01-01"
+												},
+												{
+													"key": "FechaEmisionHasta",
+													"value": "2024-12-31"
+												},
+												{
+													"key": "$expand",
+													"value": "TblControlRefencia",
+													"disabled": true
+												},
+												{
+													"key": "filter",
+													"value": "TipoDocumento eq '33'"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Filtro  Referencia tipo 33",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 200\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"let response = pm.response.json(); // Convierte la respuesta a JSON\r",
+													"let firstMatch = response.value.find(item => item.TipoDocumento === \"33\"); // Encuentra el primer elemento\r",
+													"let x = \"33\"; // Define la variable x al lo esperado\r",
+													"\r",
+													"if (firstMatch) {\r",
+													"    pm.test(`El TipoDocumento esperado es  (${x}) el cual es igual al de la respuesta  (${firstMatch.TipoDocumento})`, function () {\r",
+													"        pm.expect(firstMatch.TipoDocumento).to.eql(x); // Verifica que x sea igual a TipoDocumento\r",
+													"    });\r",
+													"} else {\r",
+													"    console.log(\"No se encontró ningún elemento con TipoDocumento = '33'\");\r",
+													"    pm.test(\"No se encontró ningún elemento con TipoDocumento\", function () {\r",
+													"        pm.expect(false).to.be.true; // Fuerza el fallo del test\r",
+													"    });\r",
+													"}\r",
+													"\r",
+													"\r",
+													"pm.test(\"Validar que TipoReferencia sea '33' y FolioReferencia sea '502' en TblControlRefencia\", function () {\r",
+													"    let values = response.value; // Accede al array 'value'\r",
+													"\r",
+													"    // Verifica cada elemento de 'value'\r",
+													"    values.forEach(item => {\r",
+													"        let referencias = item.TblControlRefencia; // Accede a 'TblControlRefencia'\r",
+													"        let match = referencias.find(ref => ref.TipoReferencia === \"33\" && ref.FolioReferencia === \"502\"); // Busca coincidencia\r",
+													"\r",
+													"        // Valida que exista al menos una coincidencia\r",
+													"        pm.expect(match).to.not.be.undefined;\r",
+													"    });\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{TokenMaestro}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "https://semdte-qa-apiconsultadte.azurewebsites.net/odata/ControlDte?RutEmisor=78079790-8&FechaEmisionDesde=2020-01-01&FechaEmisionHasta=2024-12-31&$expand=TblControlRefencia&filter=(TipoDocumento eq '33' and FolioDocumento eq 501)",
+											"protocol": "https",
+											"host": [
+												"semdte-qa-apiconsultadte",
+												"azurewebsites",
+												"net"
+											],
+											"path": [
+												"odata",
+												"ControlDte"
+											],
+											"query": [
+												{
+													"key": "$count",
+													"value": "true",
+													"disabled": true
+												},
+												{
+													"key": "RutEmisor",
+													"value": "78079790-8"
+												},
+												{
+													"key": "FechaEmisionDesde",
+													"value": "2020-01-01"
+												},
+												{
+													"key": "FechaEmisionHasta",
+													"value": "2024-12-31"
+												},
+												{
+													"key": "$expand",
+													"value": "TblControlRefencia"
+												},
+												{
+													"key": "filter",
+													"value": "(TipoDocumento eq '33' and FolioDocumento eq 501)"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Filtro TipoDocumento 34",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 200\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"let response = pm.response.json(); // Convierte la respuesta a JSON\r",
+													"let firstMatch = response.value.find(item => item.TipoDocumento === \"34\"); // Encuentra el primer elemento\r",
+													"let x = \"34\"; // Define la variable x al lo esperado\r",
+													"\r",
+													"if (firstMatch) {\r",
+													"    pm.test(`El TipoDocumento esperado es  (${x}) el cual es igual al de la respuesta  (${firstMatch.TipoDocumento})`, function () {\r",
+													"        pm.expect(firstMatch.TipoDocumento).to.eql(x); // Verifica que x sea igual a TipoDocumento\r",
+													"    });\r",
+													"} else {\r",
+													"    console.log(\"No se encontró ningún elemento con TipoDocumento = '34'\");\r",
+													"    pm.test(\"No se encontró ningún elemento con TipoDocumento\", function () {\r",
+													"        pm.expect(false).to.be.true; // Fuerza el fallo del test\r",
+													"    });\r",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{TokenMaestro}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "https://semdte-qa-apiconsultadte.azurewebsites.net/odata/ControlDte?RutEmisor=78079790-8&FechaEmisionDesde=2020-01-01&FechaEmisionHasta=2024-12-31&filter=TipoDocumento eq '34'",
+											"protocol": "https",
+											"host": [
+												"semdte-qa-apiconsultadte",
+												"azurewebsites",
+												"net"
+											],
+											"path": [
+												"odata",
+												"ControlDte"
+											],
+											"query": [
+												{
+													"key": "$count",
+													"value": "true",
+													"disabled": true
+												},
+												{
+													"key": "RutEmisor",
+													"value": "78079790-8"
+												},
+												{
+													"key": "FechaEmisionDesde",
+													"value": "2020-01-01"
+												},
+												{
+													"key": "FechaEmisionHasta",
+													"value": "2024-12-31"
+												},
+												{
+													"key": "filter",
+													"value": "TipoDocumento eq '34'"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Filtro TipoDocumento 43",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 200\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"let response = pm.response.json(); // Convierte la respuesta a JSON\r",
+													"let firstMatch = response.value.find(item => item.TipoDocumento === \"43\"); // Encuentra el primer elemento\r",
+													"let x = \"43\"; // Define la variable x al lo esperado\r",
+													"\r",
+													"if (firstMatch) {\r",
+													"    pm.test(`El TipoDocumento esperado es  (${x}) el cual es igual al de la respuesta  (${firstMatch.TipoDocumento})`, function () {\r",
+													"        pm.expect(firstMatch.TipoDocumento).to.eql(x); // Verifica que x sea igual a TipoDocumento\r",
+													"    });\r",
+													"} else {\r",
+													"    console.log(\"No se encontró ningún elemento con TipoDocumento = '43'\");\r",
+													"    pm.test(\"No se encontró ningún elemento con TipoDocumento\", function () {\r",
+													"        pm.expect(false).to.be.true; // Fuerza el fallo del test\r",
+													"    });\r",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{TokenMaestro}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "https://semdte-qa-apiconsultadte.azurewebsites.net/odata/ControlDte?RutEmisor=78079790-8&FechaEmisionDesde=2020-01-01&FechaEmisionHasta=2024-12-31&filter=TipoDocumento eq '43'",
+											"protocol": "https",
+											"host": [
+												"semdte-qa-apiconsultadte",
+												"azurewebsites",
+												"net"
+											],
+											"path": [
+												"odata",
+												"ControlDte"
+											],
+											"query": [
+												{
+													"key": "$count",
+													"value": "true",
+													"disabled": true
+												},
+												{
+													"key": "RutEmisor",
+													"value": "78079790-8"
+												},
+												{
+													"key": "FechaEmisionDesde",
+													"value": "2020-01-01"
+												},
+												{
+													"key": "FechaEmisionHasta",
+													"value": "2024-12-31"
+												},
+												{
+													"key": "filter",
+													"value": "TipoDocumento eq '43'"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Filtro TipoDocumento 46",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 200\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"let response = pm.response.json(); // Convierte la respuesta a JSON\r",
+													"let firstMatch = response.value.find(item => item.TipoDocumento === \"46\"); // Encuentra el primer elemento\r",
+													"let x = \"46\"; // Define la variable x al lo esperado\r",
+													"\r",
+													"if (firstMatch) {\r",
+													"    pm.test(`El TipoDocumento esperado es  (${x}) el cual es igual al de la respuesta  (${firstMatch.TipoDocumento})`, function () {\r",
+													"        pm.expect(firstMatch.TipoDocumento).to.eql(x); // Verifica que x sea igual a TipoDocumento\r",
+													"    });\r",
+													"} else {\r",
+													"    console.log(\"No se encontró ningún elemento con TipoDocumento = '46'\");\r",
+													"    pm.test(\"No se encontró ningún elemento con TipoDocumento\", function () {\r",
+													"        pm.expect(false).to.be.true; // Fuerza el fallo del test\r",
+													"    });\r",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{TokenMaestro}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "https://semdte-qa-apiconsultadte.azurewebsites.net/odata/ControlDte?RutEmisor=78079790-8&FechaEmisionDesde=2020-01-01&FechaEmisionHasta=2024-12-31&filter=TipoDocumento eq '46'",
+											"protocol": "https",
+											"host": [
+												"semdte-qa-apiconsultadte",
+												"azurewebsites",
+												"net"
+											],
+											"path": [
+												"odata",
+												"ControlDte"
+											],
+											"query": [
+												{
+													"key": "$count",
+													"value": "true",
+													"disabled": true
+												},
+												{
+													"key": "RutEmisor",
+													"value": "78079790-8"
+												},
+												{
+													"key": "FechaEmisionDesde",
+													"value": "2020-01-01"
+												},
+												{
+													"key": "FechaEmisionHasta",
+													"value": "2024-12-31"
+												},
+												{
+													"key": "filter",
+													"value": "TipoDocumento eq '46'"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Filtro TipoDocumento 52",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 200\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"let response = pm.response.json(); // Convierte la respuesta a JSON\r",
+													"let firstMatch = response.value.find(item => item.TipoDocumento === \"52\"); // Encuentra el primer elemento\r",
+													"let x = \"52\"; // Define la variable x al lo esperado\r",
+													"\r",
+													"if (firstMatch) {\r",
+													"    pm.test(`El TipoDocumento esperado es  (${x}) el cual es igual al de la respuesta  (${firstMatch.TipoDocumento})`, function () {\r",
+													"        pm.expect(firstMatch.TipoDocumento).to.eql(x); // Verifica que x sea igual a TipoDocumento\r",
+													"    });\r",
+													"} else {\r",
+													"    console.log(\"No se encontró ningún elemento con TipoDocumento = '52'\");\r",
+													"    pm.test(\"No se encontró ningún elemento con TipoDocumento\", function () {\r",
+													"        pm.expect(false).to.be.true; // Fuerza el fallo del test\r",
+													"    });\r",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{TokenMaestro}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "https://semdte-qa-apiconsultadte.azurewebsites.net/odata/ControlDte?RutEmisor=78079790-8&FechaEmisionDesde=2020-01-01&FechaEmisionHasta=2024-12-31&filter=TipoDocumento eq '52'",
+											"protocol": "https",
+											"host": [
+												"semdte-qa-apiconsultadte",
+												"azurewebsites",
+												"net"
+											],
+											"path": [
+												"odata",
+												"ControlDte"
+											],
+											"query": [
+												{
+													"key": "$count",
+													"value": "true",
+													"disabled": true
+												},
+												{
+													"key": "RutEmisor",
+													"value": "78079790-8"
+												},
+												{
+													"key": "FechaEmisionDesde",
+													"value": "2020-01-01"
+												},
+												{
+													"key": "FechaEmisionHasta",
+													"value": "2024-12-31"
+												},
+												{
+													"key": "filter",
+													"value": "TipoDocumento eq '52'"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Filtro TipoDocumento 56",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 200\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"let response = pm.response.json(); // Convierte la respuesta a JSON\r",
+													"let firstMatch = response.value.find(item => item.TipoDocumento === \"56\"); // Encuentra el primer elemento\r",
+													"let x = \"56\"; // Define la variable x al lo esperado\r",
+													"\r",
+													"if (firstMatch) {\r",
+													"    pm.test(`El TipoDocumento esperado es  (${x}) el cual es igual al de la respuesta  (${firstMatch.TipoDocumento})`, function () {\r",
+													"        pm.expect(firstMatch.TipoDocumento).to.eql(x); // Verifica que x sea igual a TipoDocumento\r",
+													"    });\r",
+													"} else {\r",
+													"    console.log(\"No se encontró ningún elemento con TipoDocumento = '56'\");\r",
+													"    pm.test(\"No se encontró ningún elemento con TipoDocumento\", function () {\r",
+													"        pm.expect(false).to.be.true; // Fuerza el fallo del test\r",
+													"    });\r",
+													"}\r",
+													"\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{TokenMaestro}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "https://semdte-qa-apiconsultadte.azurewebsites.net/odata/ControlDte?RutEmisor=78079790-8&FechaEmisionDesde=2020-01-01&FechaEmisionHasta=2024-12-31&filter=TipoDocumento eq '56'",
+											"protocol": "https",
+											"host": [
+												"semdte-qa-apiconsultadte",
+												"azurewebsites",
+												"net"
+											],
+											"path": [
+												"odata",
+												"ControlDte"
+											],
+											"query": [
+												{
+													"key": "$count",
+													"value": "true",
+													"disabled": true
+												},
+												{
+													"key": "RutEmisor",
+													"value": "78079790-8"
+												},
+												{
+													"key": "FechaEmisionDesde",
+													"value": "2020-01-01"
+												},
+												{
+													"key": "FechaEmisionHasta",
+													"value": "2024-12-31"
+												},
+												{
+													"key": "filter",
+													"value": "TipoDocumento eq '56'"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Filtro Referencia tipo 56",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 200\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"let response = pm.response.json(); // Convierte la respuesta a JSON\r",
+													"let firstMatch = response.value.find(item => item.TipoDocumento === \"56\"); // Encuentra el primer elemento\r",
+													"let x = \"56\"; // Define la variable x al lo esperado\r",
+													"\r",
+													"if (firstMatch) {\r",
+													"    pm.test(`El TipoDocumento esperado es  (${x}) el cual es igual al de la respuesta  (${firstMatch.TipoDocumento})`, function () {\r",
+													"        pm.expect(firstMatch.TipoDocumento).to.eql(x); // Verifica que x sea igual a TipoDocumento\r",
+													"    });\r",
+													"} else {\r",
+													"    console.log(\"No se encontró ningún elemento con TipoDocumento = '56'\");\r",
+													"    pm.test(\"No se encontró ningún elemento con TipoDocumento\", function () {\r",
+													"        pm.expect(false).to.be.true; // Fuerza el fallo del test\r",
+													"    });\r",
+													"}\r",
+													"\r",
+													"pm.test(\"Validar que TipoReferencia sea '56' y FolioReferencia sea '2' en TblControlRefencia\", function () {\r",
+													"    let values = response.value; // Accede al array 'value'\r",
+													"\r",
+													"    // Verifica cada elemento de 'value'\r",
+													"    values.forEach(item => {\r",
+													"        let referencias = item.TblControlRefencia; // Accede a 'TblControlRefencia'\r",
+													"        let match = referencias.find(ref => ref.TipoReferencia === \"33\" && ref.FolioReferencia === \"501\"); // Busca coincidencia\r",
+													"\r",
+													"        // Valida que exista al menos una coincidencia\r",
+													"        pm.expect(match).to.not.be.undefined;\r",
+													"    });\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{TokenMaestro}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "https://semdte-qa-apiconsultadte.azurewebsites.net/odata/ControlDte?RutEmisor=78079790-8&FechaEmisionDesde=2020-01-01&FechaEmisionHasta=2024-12-31&$expand=TblControlRefencia&filter=(TipoDocumento eq '56' and FolioDocumento eq 2)",
+											"protocol": "https",
+											"host": [
+												"semdte-qa-apiconsultadte",
+												"azurewebsites",
+												"net"
+											],
+											"path": [
+												"odata",
+												"ControlDte"
+											],
+											"query": [
+												{
+													"key": "$count",
+													"value": "true",
+													"disabled": true
+												},
+												{
+													"key": "RutEmisor",
+													"value": "78079790-8"
+												},
+												{
+													"key": "FechaEmisionDesde",
+													"value": "2020-01-01"
+												},
+												{
+													"key": "FechaEmisionHasta",
+													"value": "2024-12-31"
+												},
+												{
+													"key": "$expand",
+													"value": "TblControlRefencia"
+												},
+												{
+													"key": "filter",
+													"value": "(TipoDocumento eq '56' and FolioDocumento eq 2)"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Filtro TipoDocumento 61",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 200\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"let response = pm.response.json(); // Convierte la respuesta a JSON\r",
+													"let firstMatch = response.value.find(item => item.TipoDocumento === \"61\"); // Encuentra el primer elemento\r",
+													"let x = \"61\"; // Define la variable x al lo esperado\r",
+													"\r",
+													"if (firstMatch) {\r",
+													"    pm.test(`El TipoDocumento esperado es  (${x}) el cual es igual al de la respuesta  (${firstMatch.TipoDocumento})`, function () {\r",
+													"        pm.expect(firstMatch.TipoDocumento).to.eql(x); // Verifica que x sea igual a TipoDocumento\r",
+													"    });\r",
+													"} else {\r",
+													"    console.log(\"No se encontró ningún elemento con TipoDocumento = '61'\");\r",
+													"    pm.test(\"No se encontró ningún elemento con TipoDocumento\", function () {\r",
+													"        pm.expect(false).to.be.true; // Fuerza el fallo del test\r",
+													"    });\r",
+													"}\r",
+													"\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{TokenMaestro}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "https://semdte-qa-apiconsultadte.azurewebsites.net/odata/ControlDte?RutEmisor=78079790-8&FechaEmisionDesde=2020-01-01&FechaEmisionHasta=2024-12-31&filter=TipoDocumento eq '61'",
+											"protocol": "https",
+											"host": [
+												"semdte-qa-apiconsultadte",
+												"azurewebsites",
+												"net"
+											],
+											"path": [
+												"odata",
+												"ControlDte"
+											],
+											"query": [
+												{
+													"key": "$count",
+													"value": "true",
+													"disabled": true
+												},
+												{
+													"key": "RutEmisor",
+													"value": "78079790-8"
+												},
+												{
+													"key": "FechaEmisionDesde",
+													"value": "2020-01-01"
+												},
+												{
+													"key": "FechaEmisionHasta",
+													"value": "2024-12-31"
+												},
+												{
+													"key": "filter",
+													"value": "TipoDocumento eq '61'"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Filtro Referencia tipo 61",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 200\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"let response = pm.response.json(); // Convierte la respuesta a JSON\r",
+													"let firstMatch = response.value.find(item => item.TipoDocumento === \"61\"); // Encuentra el primer elemento\r",
+													"let x = \"61\"; // Define la variable x al lo esperado\r",
+													"\r",
+													"if (firstMatch) {\r",
+													"    pm.test(`El TipoDocumento esperado es  (${x}) el cual es igual al de la respuesta  (${firstMatch.TipoDocumento})`, function () {\r",
+													"        pm.expect(firstMatch.TipoDocumento).to.eql(x); // Verifica que x sea igual a TipoDocumento\r",
+													"    });\r",
+													"} else {\r",
+													"    console.log(\"No se encontró ningún elemento con TipoDocumento = '61'\");\r",
+													"    pm.test(\"No se encontró ningún elemento con TipoDocumento\", function () {\r",
+													"        pm.expect(false).to.be.true; // Fuerza el fallo del test\r",
+													"    });\r",
+													"}\r",
+													"\r",
+													"pm.test(\"Validar que TipoReferencia sea '61' y FolioReferencia sea '2' en TblControlRefencia\", function () {\r",
+													"    let values = response.value; // Accede al array 'value'\r",
+													"\r",
+													"    // Verifica cada elemento de 'value'\r",
+													"    values.forEach(item => {\r",
+													"        let referencias = item.TblControlRefencia; // Accede a 'TblControlRefencia'\r",
+													"        let match = referencias.find(ref => ref.TipoReferencia === \"33\" && ref.FolioReferencia === \"501\"); // Busca coincidencia\r",
+													"\r",
+													"        // Valida que exista al menos una coincidencia\r",
+													"        pm.expect(match).to.not.be.undefined;\r",
+													"    });\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{TokenMaestro}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "https://semdte-qa-apiconsultadte.azurewebsites.net/odata/ControlDte?RutEmisor=78079790-8&FechaEmisionDesde=2020-01-01&FechaEmisionHasta=2024-12-31&filter=(TipoDocumento eq '61' and FolioDocumento eq 5)&$expand=TblControlRefencia",
+											"protocol": "https",
+											"host": [
+												"semdte-qa-apiconsultadte",
+												"azurewebsites",
+												"net"
+											],
+											"path": [
+												"odata",
+												"ControlDte"
+											],
+											"query": [
+												{
+													"key": "$count",
+													"value": "true",
+													"disabled": true
+												},
+												{
+													"key": "RutEmisor",
+													"value": "78079790-8"
+												},
+												{
+													"key": "FechaEmisionDesde",
+													"value": "2020-01-01"
+												},
+												{
+													"key": "FechaEmisionHasta",
+													"value": "2024-12-31"
+												},
+												{
+													"key": "filter",
+													"value": "(TipoDocumento eq '61' and FolioDocumento eq 5)"
+												},
+												{
+													"key": "$expand",
+													"value": "TblControlRefencia"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Filtro TipoDocumento 110",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 200\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"let response = pm.response.json(); // Convierte la respuesta a JSON\r",
+													"let firstMatch = response.value.find(item => item.TipoDocumento === \"110\"); // Encuentra el primer elemento\r",
+													"let x = \"110\"; // Define la variable x al lo esperado\r",
+													"\r",
+													"if (firstMatch) {\r",
+													"    pm.test(`El TipoDocumento esperado es  (${x}) el cual es igual al de la respuesta  (${firstMatch.TipoDocumento})`, function () {\r",
+													"        pm.expect(firstMatch.TipoDocumento).to.eql(x); // Verifica que x sea igual a TipoDocumento\r",
+													"    });\r",
+													"} else {\r",
+													"    console.log(\"No se encontró ningún elemento con TipoDocumento = '110'\");\r",
+													"    pm.test(\"No se encontró ningún elemento con TipoDocumento\", function () {\r",
+													"        pm.expect(false).to.be.true; // Fuerza el fallo del test\r",
+													"    });\r",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{TokenMaestro}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "https://semdte-qa-apiconsultadte.azurewebsites.net/odata/ControlDte?RutEmisor=78079790-8&FechaEmisionDesde=2020-01-01&FechaEmisionHasta=2024-12-31&filter=TipoDocumento eq '110'",
+											"protocol": "https",
+											"host": [
+												"semdte-qa-apiconsultadte",
+												"azurewebsites",
+												"net"
+											],
+											"path": [
+												"odata",
+												"ControlDte"
+											],
+											"query": [
+												{
+													"key": "$count",
+													"value": "true",
+													"disabled": true
+												},
+												{
+													"key": "RutEmisor",
+													"value": "78079790-8"
+												},
+												{
+													"key": "FechaEmisionDesde",
+													"value": "2020-01-01"
+												},
+												{
+													"key": "FechaEmisionHasta",
+													"value": "2024-12-31"
+												},
+												{
+													"key": "filter",
+													"value": "TipoDocumento eq '110'"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Filtro TipoDocumento 111",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 200\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"let response = pm.response.json(); // Convierte la respuesta a JSON\r",
+													"let firstMatch = response.value.find(item => item.TipoDocumento === \"111\"); // Encuentra el primer elemento\r",
+													"let x = \"111\"; // Define la variable x al lo esperado\r",
+													"\r",
+													"if (firstMatch) {\r",
+													"    pm.test(`El TipoDocumento esperado es  (${x}) el cual es igual al de la respuesta  (${firstMatch.TipoDocumento})`, function () {\r",
+													"        pm.expect(firstMatch.TipoDocumento).to.eql(x); // Verifica que x sea igual a TipoDocumento\r",
+													"    });\r",
+													"} else {\r",
+													"    console.log(\"No se encontró ningún elemento con TipoDocumento = '111'\");\r",
+													"    pm.test(\"No se encontró ningún elemento con TipoDocumento\", function () {\r",
+													"        pm.expect(false).to.be.true; // Fuerza el fallo del test\r",
+													"    });\r",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{TokenMaestro}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "https://semdte-qa-apiconsultadte.azurewebsites.net/odata/ControlDte?RutEmisor=78079790-8&FechaEmisionDesde=2020-01-01&FechaEmisionHasta=2024-12-31&filter=TipoDocumento eq '111'",
+											"protocol": "https",
+											"host": [
+												"semdte-qa-apiconsultadte",
+												"azurewebsites",
+												"net"
+											],
+											"path": [
+												"odata",
+												"ControlDte"
+											],
+											"query": [
+												{
+													"key": "$count",
+													"value": "true",
+													"disabled": true
+												},
+												{
+													"key": "RutEmisor",
+													"value": "78079790-8"
+												},
+												{
+													"key": "FechaEmisionDesde",
+													"value": "2020-01-01"
+												},
+												{
+													"key": "FechaEmisionHasta",
+													"value": "2024-12-31"
+												},
+												{
+													"key": "filter",
+													"value": "TipoDocumento eq '111'"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Filtro TipoDocumento 112",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 200\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"let response = pm.response.json(); // Convierte la respuesta a JSON\r",
+													"let firstMatch = response.value.find(item => item.TipoDocumento === \"112\"); // Encuentra el primer elemento\r",
+													"let x = \"112\"; // Define la variable x al lo esperado\r",
+													"\r",
+													"if (firstMatch) {\r",
+													"    pm.test(`El TipoDocumento esperado es  (${x}) el cual es igual al de la respuesta  (${firstMatch.TipoDocumento})`, function () {\r",
+													"        pm.expect(firstMatch.TipoDocumento).to.eql(x); // Verifica que x sea igual a TipoDocumento\r",
+													"    });\r",
+													"} else {\r",
+													"    console.log(\"No se encontró ningún elemento con TipoDocumento = '112'\");\r",
+													"    pm.test(\"No se encontró ningún elemento con TipoDocumento\", function () {\r",
+													"        pm.expect(false).to.be.true; // Fuerza el fallo del test\r",
+													"    });\r",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{TokenMaestro}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "https://semdte-qa-apiconsultadte.azurewebsites.net/odata/ControlDte?RutEmisor=78079790-8&FechaEmisionDesde=2020-01-01&FechaEmisionHasta=2024-12-31&filter=TipoDocumento eq '112'",
+											"protocol": "https",
+											"host": [
+												"semdte-qa-apiconsultadte",
+												"azurewebsites",
+												"net"
+											],
+											"path": [
+												"odata",
+												"ControlDte"
+											],
+											"query": [
+												{
+													"key": "$count",
+													"value": "true",
+													"disabled": true
+												},
+												{
+													"key": "RutEmisor",
+													"value": "78079790-8"
+												},
+												{
+													"key": "FechaEmisionDesde",
+													"value": "2020-01-01"
+												},
+												{
+													"key": "FechaEmisionHasta",
+													"value": "2024-12-31"
+												},
+												{
+													"key": "filter",
+													"value": "TipoDocumento eq '112'"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Filtro MontoNeto",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 200\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"let response = pm.response.json(); // Convierte la respuesta a JSON\r",
+													"let firstMatch = response.value.find(item => item.MontoNeto === 123); // Encuentra el primer elemento\r",
+													"let x = 123; // Define la variable x al lo esperado\r",
+													"\r",
+													"if (firstMatch) {\r",
+													"    pm.test(`El MontoNeto esperado es  (${x}) el cual es igual al de la respuesta  (${firstMatch.MontoNeto})`, function () {\r",
+													"        pm.expect(firstMatch.MontoNeto).to.eql(x); // Verifica que x sea igual a MontoNeto\r",
+													"    });\r",
+													"} else {\r",
+													"    //console.log(\"No se encontró ningún elemento con MontoNeto = 123\");\r",
+													"    pm.test(\"No se encontró ningún elemento con MontoNeto\", function () {\r",
+													"        pm.expect(false).to.be.true; // Fuerza el fallo del test\r",
+													"    });\r",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{TokenMaestro}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "https://semdte-qa-apiconsultadte.azurewebsites.net/odata/ControlDte?RutEmisor=78079790-8&FechaEmisionDesde=2020-01-01&FechaEmisionHasta=2024-12-31&filter=MontoNeto eq 123",
+											"protocol": "https",
+											"host": [
+												"semdte-qa-apiconsultadte",
+												"azurewebsites",
+												"net"
+											],
+											"path": [
+												"odata",
+												"ControlDte"
+											],
+											"query": [
+												{
+													"key": "$count",
+													"value": "true",
+													"disabled": true
+												},
+												{
+													"key": "RutEmisor",
+													"value": "78079790-8"
+												},
+												{
+													"key": "FechaEmisionDesde",
+													"value": "2020-01-01"
+												},
+												{
+													"key": "FechaEmisionHasta",
+													"value": "2024-12-31"
+												},
+												{
+													"key": "filter",
+													"value": "MontoNeto eq 123"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Filtro FechaEmision",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 200\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"let response = pm.response.json(); // Convierte la respuesta a JSON\r",
+													"let firstMatch = response.value.find(item => item.FechaEmision === \"2020-10-09\"); // Encuentra el primer elemento\r",
+													"let x = \"2020-10-09\"; // Define la variable x al lo esperado\r",
+													"\r",
+													"if (firstMatch) {\r",
+													"    pm.test(`El FechaEmision esperado es  (${x}) el cual es igual al de la respuesta  (${firstMatch.FechaEmision})`, function () {\r",
+													"        pm.expect(firstMatch.FechaEmision).to.eql(x); // Verifica que x sea igual a FechaEmision\r",
+													"    });\r",
+													"} else {\r",
+													"    //console.log(\"No se encontró ningún elemento con FechaEmision = '2020-10-09'\");\r",
+													"    pm.test(\"No se encontró ningún elemento con FechaEmision\", function () {\r",
+													"        pm.expect(false).to.be.true; // Fuerza el fallo del test\r",
+													"    });\r",
+													"}\r",
+													"\r",
+													"\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{TokenMaestro}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "https://semdte-qa-apiconsultadte.azurewebsites.net/odata/ControlDte?RutEmisor=78079790-8&FechaEmisionDesde=2020-01-01&FechaEmisionHasta=2024-12-31&filter=FechaEmision eq 2020-10-09",
+											"protocol": "https",
+											"host": [
+												"semdte-qa-apiconsultadte",
+												"azurewebsites",
+												"net"
+											],
+											"path": [
+												"odata",
+												"ControlDte"
+											],
+											"query": [
+												{
+													"key": "$count",
+													"value": "true",
+													"disabled": true
+												},
+												{
+													"key": "RutEmisor",
+													"value": "78079790-8"
+												},
+												{
+													"key": "FechaEmisionDesde",
+													"value": "2020-01-01"
+												},
+												{
+													"key": "FechaEmisionHasta",
+													"value": "2024-12-31"
+												},
+												{
+													"key": "filter",
+													"value": "FechaEmision eq 2020-10-09"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Filtro FolioDocumento",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 200\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"let response = pm.response.json(); // Convierte la respuesta a JSON\r",
+													"let firstMatch = response.value.find(item => item.FolioDocumento === 24); // Encuentra el primer elemento\r",
+													"let x = 24; // Define la variable x al lo esperado\r",
+													"\r",
+													"if (firstMatch) {\r",
+													"    pm.test(`El FolioDocumento esperado es  (${x}) el cual es igual al de la respuesta  (${firstMatch.FolioDocumento})`, function () {\r",
+													"        pm.expect(firstMatch.FolioDocumento).to.eql(x); // Verifica que x sea igual a FolioDocumento\r",
+													"    });\r",
+													"} else {\r",
+													"    //console.log(\"No se encontró ningún elemento con FolioDocumento = 24\");\r",
+													"    pm.test(\"No se encontró ningún elemento con FolioDocumento\", function () {\r",
+													"        pm.expect(false).to.be.true; // Fuerza el fallo del test\r",
+													"    });\r",
+													"}\r",
+													"\r",
+													"\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{TokenMaestro}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "https://semdte-qa-apiconsultadte.azurewebsites.net/odata/ControlDte?RutEmisor=78079790-8&FechaEmisionDesde=2020-01-01&FechaEmisionHasta=2024-12-31",
+											"protocol": "https",
+											"host": [
+												"semdte-qa-apiconsultadte",
+												"azurewebsites",
+												"net"
+											],
+											"path": [
+												"odata",
+												"ControlDte"
+											],
+											"query": [
+												{
+													"key": "$count",
+													"value": "true",
+													"disabled": true
+												},
+												{
+													"key": "RutEmisor",
+													"value": "78079790-8"
+												},
+												{
+													"key": "FechaEmisionDesde",
+													"value": "2020-01-01"
+												},
+												{
+													"key": "FechaEmisionHasta",
+													"value": "2024-12-31"
+												},
+												{
+													"key": "filter",
+													"value": "FolioDocumento eq 24",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Filtro MontoIva",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 200\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"let response = pm.response.json(); // Convierte la respuesta a JSON\r",
+													"let firstMatch = response.value.find(item => item.MontoIva === 1000); // Encuentra el primer elemento\r",
+													"let x = 1000; // Define la variable x al lo esperado\r",
+													"\r",
+													"if (firstMatch) {\r",
+													"    pm.test(`El MontoIva esperado es  (${x}) el cual es igual al de la respuesta  (${firstMatch.MontoIva})`, function () {\r",
+													"        pm.expect(firstMatch.MontoIva).to.eql(x); // Verifica que x sea igual a MontoIva\r",
+													"    });\r",
+													"} else {\r",
+													"    //console.log(\"No se encontró ningún elemento con MontoIva = 1000\");\r",
+													"    pm.test(\"No se encontró ningún elemento con MontoIva\", function () {\r",
+													"        pm.expect(false).to.be.true; // Fuerza el fallo del test\r",
+													"    });\r",
+													"}\r",
+													"\r",
+													"\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{TokenMaestro}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "https://semdte-qa-apiconsultadte.azurewebsites.net/odata/ControlDte?RutEmisor=78079790-8&FechaEmisionDesde=2020-01-01&FechaEmisionHasta=2024-12-31&filter=MontoIva eq 1000",
+											"protocol": "https",
+											"host": [
+												"semdte-qa-apiconsultadte",
+												"azurewebsites",
+												"net"
+											],
+											"path": [
+												"odata",
+												"ControlDte"
+											],
+											"query": [
+												{
+													"key": "$count",
+													"value": "true",
+													"disabled": true
+												},
+												{
+													"key": "RutEmisor",
+													"value": "78079790-8"
+												},
+												{
+													"key": "FechaEmisionDesde",
+													"value": "2020-01-01"
+												},
+												{
+													"key": "FechaEmisionHasta",
+													"value": "2024-12-31"
+												},
+												{
+													"key": "filter",
+													"value": "MontoIva eq 1000"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Filtro EstadoComercial",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 200\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"let response = pm.response.json(); // Convierte la respuesta a JSON\r",
+													"let firstMatch = response.value.find(item => item.EstadoComercial === \"EstadoCome\"); // Encuentra el primer elemento\r",
+													"let x = \"EstadoCome\"; // Define la variable x al lo esperado\r",
+													"\r",
+													"if (firstMatch) {\r",
+													"    pm.test(`El EstadoComercial esperado es  (${x}) el cual es igual al de la respuesta  (${firstMatch.EstadoComercial})`, function () {\r",
+													"        pm.expect(firstMatch.EstadoComercial).to.eql(x); // Verifica que x sea igual a EstadoComercial\r",
+													"    });\r",
+													"} else {\r",
+													"    //console.log(\"No se encontró ningún elemento con EstadoComercial = 'EstadoCome'\");\r",
+													"    pm.test(\"No se encontró ningún elemento con EstadoComercial\", function () {\r",
+													"        pm.expect(false).to.be.true; // Fuerza el fallo del test\r",
+													"    });\r",
+													"}\r",
+													"\r",
+													"\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{TokenMaestro}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "https://semdte-qa-apiconsultadte.azurewebsites.net/odata/ControlDte?filter=EstadoComercial eq 'EstadoCome'&RutEmisor=78079790-8&FechaEmisionDesde=2020-10-01&FechaEmisionHasta=2024-12-31",
+											"protocol": "https",
+											"host": [
+												"semdte-qa-apiconsultadte",
+												"azurewebsites",
+												"net"
+											],
+											"path": [
+												"odata",
+												"ControlDte"
+											],
+											"query": [
+												{
+													"key": "$count",
+													"value": "true",
+													"disabled": true
+												},
+												{
+													"key": "filter",
+													"value": "EstadoComercial eq 'EstadoCome'"
+												},
+												{
+													"key": "RutEmisor",
+													"value": "78079790-8"
+												},
+												{
+													"key": "FechaEmisionDesde",
+													"value": "2020-10-01"
+												},
+												{
+													"key": "FechaEmisionHasta",
+													"value": "2024-12-31"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Filtro EstadoEventoSii",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 200\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"let response = pm.response.json(); // Convierte la respuesta a JSON\r",
+													"let firstMatch = response.value.find(item => item.EstadoEventoSii === \"EstadoEven\"); // Encuentra el primer elemento\r",
+													"let x = \"EstadoEven\"; // Define la variable x al lo esperado\r",
+													"\r",
+													"if (firstMatch) {\r",
+													"    pm.test(`El EstadoEventoSii esperado es  (${x}) el cual es igual al de la respuesta  (${firstMatch.EstadoEventoSii})`, function () {\r",
+													"        pm.expect(firstMatch.EstadoEventoSii).to.eql(x); // Verifica que x sea igual a EstadoEventoSii\r",
+													"    });\r",
+													"} else {\r",
+													"    //console.log(\"No se encontró ningún elemento con EstadoEventoSii = 'EstadoEven'\");\r",
+													"    pm.test(\"No se encontró ningún elemento con EstadoEventoSii\", function () {\r",
+													"        pm.expect(false).to.be.true; // Fuerza el fallo del test\r",
+													"    });\r",
+													"}\r",
+													"\r",
+													"\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{TokenMaestro}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "https://semdte-qa-apiconsultadte.azurewebsites.net/odata/ControlDte?filter=EstadoEventoSii eq 'EstadoEven'&RutEmisor=78079790-8&FechaEmisionDesde=2020-10-01&FechaEmisionHasta=2024-12-31",
+											"protocol": "https",
+											"host": [
+												"semdte-qa-apiconsultadte",
+												"azurewebsites",
+												"net"
+											],
+											"path": [
+												"odata",
+												"ControlDte"
+											],
+											"query": [
+												{
+													"key": "$count",
+													"value": "true",
+													"disabled": true
+												},
+												{
+													"key": "filter",
+													"value": "EstadoEventoSii eq 'EstadoEven'"
+												},
+												{
+													"key": "RutEmisor",
+													"value": "78079790-8"
+												},
+												{
+													"key": "FechaEmisionDesde",
+													"value": "2020-10-01"
+												},
+												{
+													"key": "FechaEmisionHasta",
+													"value": "2024-12-31"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Filtro EstadoEnvioSii",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 200\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"let response = pm.response.json(); // Convierte la respuesta a JSON\r",
+													"let firstMatch = response.value.find(item => item.EstadoEnvioSii === \"EstadoEnvi\"); // Encuentra el primer elemento\r",
+													"let x = \"EstadoEnvi\"; // Define la variable x al lo esperado\r",
+													"\r",
+													"if (firstMatch) {\r",
+													"    pm.test(`El EstadoEnvioSii esperado es  (${x}) el cual es igual al de la respuesta  (${firstMatch.EstadoEnvioSii})`, function () {\r",
+													"        pm.expect(firstMatch.EstadoEnvioSii).to.eql(x); // Verifica que x sea igual a EstadoEnvioSii\r",
+													"    });\r",
+													"} else {\r",
+													"    //console.log(\"No se encontró ningún elemento con EstadoEnvioSii = 'EstadoEnvi'\");\r",
+													"    pm.test(\"No se encontró ningún elemento con EstadoEnvioSii\", function () {\r",
+													"        pm.expect(false).to.be.true; // Fuerza el fallo del test\r",
+													"    });\r",
+													"}\r",
+													"\r",
+													"\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{TokenMaestro}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "https://semdte-qa-apiconsultadte.azurewebsites.net/odata/ControlDte?filter=EstadoEnvioSii eq 'EstadoEnvi'&RutEmisor=78079790-8&FechaEmisionDesde=2020-10-01&FechaEmisionHasta=2024-12-31",
+											"protocol": "https",
+											"host": [
+												"semdte-qa-apiconsultadte",
+												"azurewebsites",
+												"net"
+											],
+											"path": [
+												"odata",
+												"ControlDte"
+											],
+											"query": [
+												{
+													"key": "$count",
+													"value": "true",
+													"disabled": true
+												},
+												{
+													"key": "filter",
+													"value": "EstadoEnvioSii eq 'EstadoEnvi'"
+												},
+												{
+													"key": "RutEmisor",
+													"value": "78079790-8"
+												},
+												{
+													"key": "FechaEmisionDesde",
+													"value": "2020-10-01"
+												},
+												{
+													"key": "FechaEmisionHasta",
+													"value": "2024-12-31"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Filtro RutReceptor",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 200\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"let response = pm.response.json(); // Convierte la respuesta a JSON\r",
+													"let firstMatch = response.value.find(item => item.RutReceptor === \"22222222-2\"); // Encuentra el primer elemento\r",
+													"let x = \"22222222-2\"; // Define la variable x al lo esperado\r",
+													"\r",
+													"if (firstMatch) {\r",
+													"    pm.test(`El RutReceptor esperado es  (${x}) el cual es igual al de la respuesta  (${firstMatch.RutReceptor})`, function () {\r",
+													"        pm.expect(firstMatch.RutReceptor).to.eql(x); // Verifica que x sea igual a RutReceptor\r",
+													"    });\r",
+													"} else {\r",
+													"    //console.log(\"No se encontró ningún elemento con RutReceptor = '22222222-2'\");\r",
+													"    pm.test(\"No se encontró ningún elemento con RutReceptor\", function () {\r",
+													"        pm.expect(false).to.be.true; // Fuerza el fallo del test\r",
+													"    });\r",
+													"}\r",
+													"\r",
+													"\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{TokenMaestro}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "https://semdte-qa-apiconsultadte.azurewebsites.net/odata/ControlDte?filter=RutReceptor eq '22222222-2'&RutEmisor=78079790-8&FechaEmisionDesde=2020-10-01&FechaEmisionHasta=2024-12-31",
+											"protocol": "https",
+											"host": [
+												"semdte-qa-apiconsultadte",
+												"azurewebsites",
+												"net"
+											],
+											"path": [
+												"odata",
+												"ControlDte"
+											],
+											"query": [
+												{
+													"key": "$count",
+													"value": "true",
+													"disabled": true
+												},
+												{
+													"key": "filter",
+													"value": "RutReceptor eq '22222222-2'"
+												},
+												{
+													"key": "RutEmisor",
+													"value": "78079790-8"
+												},
+												{
+													"key": "FechaEmisionDesde",
+													"value": "2020-10-01"
+												},
+												{
+													"key": "FechaEmisionHasta",
+													"value": "2024-12-31"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Filtro MensajeSii",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 200\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"let response = pm.response.json(); // Convierte la respuesta a JSON\r",
+													"let firstMatch = response.value.find(item => item.MensajeSii === \"Mensaje SII\"); // Encuentra el primer elemento\r",
+													"let x = \"Mensaje SII\"; // Define la variable x al lo esperado\r",
+													"\r",
+													"if (firstMatch) {\r",
+													"    pm.test(`El MensajeSii esperado es  (${x}) el cual es igual al de la respuesta  (${firstMatch.MensajeSii})`, function () {\r",
+													"        pm.expect(firstMatch.MensajeSii).to.eql(x); // Verifica que x sea igual a MensajeSii\r",
+													"    });\r",
+													"} else {\r",
+													"    //console.log(\"No se encontró ningún elemento con MensajeSii = 'Mensaje SII'\");\r",
+													"    pm.test(\"No se encontró ningún elemento con MensajeSii\", function () {\r",
+													"        pm.expect(false).to.be.true; // Fuerza el fallo del test\r",
+													"    });\r",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{TokenMaestro}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "https://semdte-qa-apiconsultadte.azurewebsites.net/odata/ControlDte?filter=MensajeSii eq 'Mensaje SII'&RutEmisor=78079790-8&FechaEmisionDesde=2020-10-01&FechaEmisionHasta=2024-12-31",
+											"protocol": "https",
+											"host": [
+												"semdte-qa-apiconsultadte",
+												"azurewebsites",
+												"net"
+											],
+											"path": [
+												"odata",
+												"ControlDte"
+											],
+											"query": [
+												{
+													"key": "$count",
+													"value": "true",
+													"disabled": true
+												},
+												{
+													"key": "filter",
+													"value": "MensajeSii eq 'Mensaje SII'"
+												},
+												{
+													"key": "RutEmisor",
+													"value": "78079790-8"
+												},
+												{
+													"key": "FechaEmisionDesde",
+													"value": "2020-10-01"
+												},
+												{
+													"key": "FechaEmisionHasta",
+													"value": "2024-12-31"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Filtro TrackIdSii",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 200\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"let response = pm.response.json(); // Convierte la respuesta a JSON\r",
+													"let firstMatch = response.value.find(item => item.TrackIdSii === \"721112103\"); // Encuentra el primer elemento\r",
+													"let x = \"721112103\"; // Define la variable x al lo esperado\r",
+													"\r",
+													"if (firstMatch) {\r",
+													"    pm.test(`El TrackIdSii esperado es  (${x}) el cual es igual al de la respuesta  (${firstMatch.TrackIdSii})`, function () {\r",
+													"        pm.expect(firstMatch.TrackIdSii).to.eql(x); // Verifica que x sea igual a TrackIdSii\r",
+													"    });\r",
+													"} else {\r",
+													"    //console.log(\"No se encontró ningún elemento con TrackIdSii = '721112103'\");\r",
+													"    pm.test(\"No se encontró ningún elemento con TrackIdSii\", function () {\r",
+													"        pm.expect(false).to.be.true; // Fuerza el fallo del test\r",
+													"    });\r",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{TokenMaestro}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "https://semdte-qa-apiconsultadte.azurewebsites.net/odata/ControlDte?filter=TrackIdSii eq '721112103'&RutEmisor=78079790-8&FechaEmisionDesde=2020-10-01&FechaEmisionHasta=2024-12-31",
+											"protocol": "https",
+											"host": [
+												"semdte-qa-apiconsultadte",
+												"azurewebsites",
+												"net"
+											],
+											"path": [
+												"odata",
+												"ControlDte"
+											],
+											"query": [
+												{
+													"key": "$count",
+													"value": "true",
+													"disabled": true
+												},
+												{
+													"key": "filter",
+													"value": "TrackIdSii eq '721112103'"
+												},
+												{
+													"key": "RutEmisor",
+													"value": "78079790-8"
+												},
+												{
+													"key": "FechaEmisionDesde",
+													"value": "2020-10-01"
+												},
+												{
+													"key": "FechaEmisionHasta",
+													"value": "2024-12-31"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Filtro  MontoTotal",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 200\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"let response = pm.response.json(); // Convierte la respuesta a JSON\r",
+													"let firstMatch = response.value.find(item => item.MontoTotal === 78096000); // Encuentra el primer elemento\r",
+													"let x = 78096000; // Define la variable x al lo esperado\r",
+													"\r",
+													"if (firstMatch) {\r",
+													"    pm.test(`El MontoTotal esperado es  (${x}) el cual es igual al de la respuesta  (${firstMatch.MontoTotal})`, function () {\r",
+													"        pm.expect(firstMatch.MontoTotal).to.eql(x); // Verifica que x sea igual a MontoTotal\r",
+													"    });\r",
+													"} else {\r",
+													"    //console.log(\"No se encontró ningún elemento con MontoTotal = 78096000\");\r",
+													"    pm.test(\"No se encontró ningún elemento con MontoTotal\", function () {\r",
+													"        pm.expect(false).to.be.true; // Fuerza el fallo del test\r",
+													"    });\r",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{TokenMaestro}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "https://semdte-qa-apiconsultadte.azurewebsites.net/odata/ControlDte?filter=MontoTotal eq 78096000&RutEmisor=78079790-8&FechaEmisionDesde=2020-10-01&FechaEmisionHasta=2024-12-31",
+											"protocol": "https",
+											"host": [
+												"semdte-qa-apiconsultadte",
+												"azurewebsites",
+												"net"
+											],
+											"path": [
+												"odata",
+												"ControlDte"
+											],
+											"query": [
+												{
+													"key": "$count",
+													"value": "true",
+													"disabled": true
+												},
+												{
+													"key": "filter",
+													"value": "MontoTotal eq 78096000"
+												},
+												{
+													"key": "RutEmisor",
+													"value": "78079790-8"
+												},
+												{
+													"key": "FechaEmisionDesde",
+													"value": "2020-10-01"
+												},
+												{
+													"key": "FechaEmisionHasta",
+													"value": "2024-12-31"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Filtro NombreReceptor",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 200\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"let response = pm.response.json(); // Convierte la respuesta a JSON\r",
+													"let firstMatch = response.value.find(item => item.NombreReceptor === \"Receptor Prueba\"); // Encuentra el primer elemento\r",
+													"let x = \"Receptor Prueba\"; // Define la variable x al lo esperado\r",
+													"\r",
+													"if (firstMatch) {\r",
+													"    pm.test(`El NombreReceptor esperado es  (${x}) el cual es igual al de la respuesta  (${firstMatch.NombreReceptor})`, function () {\r",
+													"        pm.expect(firstMatch.NombreReceptor).to.eql(x); // Verifica que x sea igual a NombreReceptor\r",
+													"    });\r",
+													"} else {\r",
+													"    //console.log(\"No se encontró ningún elemento con NombreReceptor = 'Receptor Prueba'\");\r",
+													"    pm.test(\"No se encontró ningún elemento con NombreReceptor\", function () {\r",
+													"        pm.expect(false).to.be.true; // Fuerza el fallo del test\r",
+													"    });\r",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{TokenMaestro}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "https://semdte-qa-apiconsultadte.azurewebsites.net/odata/ControlDte?filter=NombreReceptor eq 'Receptor Prueba'&RutEmisor=78079790-8&FechaEmisionDesde=2020-10-01&FechaEmisionHasta=2024-12-31",
+											"protocol": "https",
+											"host": [
+												"semdte-qa-apiconsultadte",
+												"azurewebsites",
+												"net"
+											],
+											"path": [
+												"odata",
+												"ControlDte"
+											],
+											"query": [
+												{
+													"key": "$count",
+													"value": "true",
+													"disabled": true
+												},
+												{
+													"key": "filter",
+													"value": "NombreReceptor eq 'Receptor Prueba'"
+												},
+												{
+													"key": "RutEmisor",
+													"value": "78079790-8"
+												},
+												{
+													"key": "FechaEmisionDesde",
+													"value": "2020-10-01"
+												},
+												{
+													"key": "FechaEmisionHasta",
+													"value": "2024-12-31"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Negativos",
+							"item": [
+								{
+									"name": "Token Invalido",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"El codigo Status es 401\", function () {\r",
+													"    pm.response.to.have.status(401);\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "3655e54de56d4w654d65wed4w6d4wdw6d",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "https://semdte-qa-apiconsultadte.azurewebsites.net/odata/ControlDte?RutEmisor=78079790-8&FechaEmisionDesde=2020-10-01&FechaEmisionHasta=2024-12-31",
+											"protocol": "https",
+											"host": [
+												"semdte-qa-apiconsultadte",
+												"azurewebsites",
+												"net"
+											],
+											"path": [
+												"odata",
+												"ControlDte"
+											],
+											"query": [
+												{
+													"key": "$count",
+													"value": "true",
+													"disabled": true
+												},
+												{
+													"key": "filter",
+													"value": "TipoDocumento eq '41'",
+													"disabled": true
+												},
+												{
+													"key": "RutEmisor",
+													"value": "78079790-8"
+												},
+												{
+													"key": "FechaEmisionDesde",
+													"value": "2020-10-01"
+												},
+												{
+													"key": "FechaEmisionHasta",
+													"value": "2024-12-31"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Sin token",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"El codigo Status es 401\", function () {\r",
+													"    pm.response.to.have.status(401);\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "https://semdte-qa-apiconsultadte.azurewebsites.net/odata/ControlDte?RutEmisor=78079790-8&FechaEmisionDesde=2020-10-01&FechaEmisionHasta=2024-12-31",
+											"protocol": "https",
+											"host": [
+												"semdte-qa-apiconsultadte",
+												"azurewebsites",
+												"net"
+											],
+											"path": [
+												"odata",
+												"ControlDte"
+											],
+											"query": [
+												{
+													"key": "$count",
+													"value": "true",
+													"disabled": true
+												},
+												{
+													"key": "filter",
+													"value": "TipoDocumento eq '41'",
+													"disabled": true
+												},
+												{
+													"key": "RutEmisor",
+													"value": "78079790-8"
+												},
+												{
+													"key": "FechaEmisionDesde",
+													"value": "2020-10-01"
+												},
+												{
+													"key": "FechaEmisionHasta",
+													"value": "2024-12-31"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Sin Rut",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"El codigo Status es 400\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});\r",
+													"\r",
+													"let response = pm.response.json(); // Convierte la respuesta a JSON\r",
+													"\r",
+													"pm.test(\"El campo con error  es RutEmisor\", function () {\r",
+													"    // Verifica si el campo target es igual a 'RutEmisor'\r",
+													"    let targetValue = response.error.details[0]?.target; // Obtiene el valor del campo target\r",
+													"    pm.expect(targetValue).to.eql(\"RutEmisor\"); // Valida que sea 'RutEmisor'\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{TokenMaestro}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "https://semdte-qa-apiconsultadte.azurewebsites.net/odata/ControlDte?FechaEmisionDesde=2020-10-01&FechaEmisionHasta=2024-12-31",
+											"protocol": "https",
+											"host": [
+												"semdte-qa-apiconsultadte",
+												"azurewebsites",
+												"net"
+											],
+											"path": [
+												"odata",
+												"ControlDte"
+											],
+											"query": [
+												{
+													"key": "$count",
+													"value": "true",
+													"disabled": true
+												},
+												{
+													"key": "filter",
+													"value": "TipoDocumento eq '41'",
+													"disabled": true
+												},
+												{
+													"key": "RutEmisor",
+													"value": "78079790-8",
+													"disabled": true
+												},
+												{
+													"key": "FechaEmisionDesde",
+													"value": "2020-10-01"
+												},
+												{
+													"key": "FechaEmisionHasta",
+													"value": "2024-12-31"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "sin fecha desde",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"El codigo Status es 400\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});\r",
+													"\r",
+													"let response = pm.response.json(); // Convierte la respuesta a JSON\r",
+													"\r",
+													"pm.test(\"El campo con error  es FechaEmisionDesde\", function () {\r",
+													"    // Verifica si el campo target es igual a 'FechaEmisionDesde'\r",
+													"    let targetValue = response.error.details[0]?.target; // Obtiene el valor del campo target\r",
+													"    pm.expect(targetValue).to.eql(\"FechaEmisionDesde\"); // Valida que sea 'FechaEmisionDesde'\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{TokenMaestro}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "https://semdte-qa-apiconsultadte.azurewebsites.net/odata/ControlDte?RutEmisor=78079790-8&FechaEmisionHasta=2024-12-31",
+											"protocol": "https",
+											"host": [
+												"semdte-qa-apiconsultadte",
+												"azurewebsites",
+												"net"
+											],
+											"path": [
+												"odata",
+												"ControlDte"
+											],
+											"query": [
+												{
+													"key": "$count",
+													"value": "true",
+													"disabled": true
+												},
+												{
+													"key": "filter",
+													"value": "TipoDocumento eq '41'",
+													"disabled": true
+												},
+												{
+													"key": "RutEmisor",
+													"value": "78079790-8"
+												},
+												{
+													"key": "FechaEmisionDesde",
+													"value": "2020-10-01",
+													"disabled": true
+												},
+												{
+													"key": "FechaEmisionHasta",
+													"value": "2024-12-31"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Sin fecha Hasta",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"El codigo Status es 400\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});\r",
+													"\r",
+													"let response = pm.response.json(); // Convierte la respuesta a JSON\r",
+													"\r",
+													"pm.test(\"El campo con error  es FechaEmisionHasta\", function () {\r",
+													"    // Verifica si el campo target es igual a 'FechaEmisionHasta'\r",
+													"    let targetValue = response.error.details[0]?.target; // Obtiene el valor del campo target\r",
+													"    pm.expect(targetValue).to.eql(\"FechaEmisionHasta\"); // Valida que sea 'FechaEmisionHasta'\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{TokenMaestro}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "https://semdte-qa-apiconsultadte.azurewebsites.net/odata/ControlDte?RutEmisor=78079790-8&FechaEmisionDesde=2020-10-01",
+											"protocol": "https",
+											"host": [
+												"semdte-qa-apiconsultadte",
+												"azurewebsites",
+												"net"
+											],
+											"path": [
+												"odata",
+												"ControlDte"
+											],
+											"query": [
+												{
+													"key": "$count",
+													"value": "true",
+													"disabled": true
+												},
+												{
+													"key": "filter",
+													"value": "TipoDocumento eq '41'",
+													"disabled": true
+												},
+												{
+													"key": "RutEmisor",
+													"value": "78079790-8"
+												},
+												{
+													"key": "FechaEmisionDesde",
+													"value": "2020-10-01"
+												},
+												{
+													"key": "FechaEmisionHasta",
+													"value": "2024-12-31",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Rut invalido",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"El codigo Status es 200\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"let response = pm.response.json(); // Convierte la respuesta a JSON\r",
+													"\r",
+													"pm.test(\"La respuesta esta vacía\", function () {\r",
+													"    // Verifica si el campo value es un array vacío\r",
+													"    pm.expect(response.value).to.be.an(\"array\").that.is.empty;\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{TokenMaestro}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "https://semdte-qa-apiconsultadte.azurewebsites.net/odata/ControlDte?RutEmisor=7856456sss-8&FechaEmisionDesde=2020-10-01&FechaEmisionHasta=2024-12-31",
+											"protocol": "https",
+											"host": [
+												"semdte-qa-apiconsultadte",
+												"azurewebsites",
+												"net"
+											],
+											"path": [
+												"odata",
+												"ControlDte"
+											],
+											"query": [
+												{
+													"key": "$count",
+													"value": "true",
+													"disabled": true
+												},
+												{
+													"key": "filter",
+													"value": "TipoDocumento eq '41'",
+													"disabled": true
+												},
+												{
+													"key": "RutEmisor",
+													"value": "7856456sss-8"
+												},
+												{
+													"key": "FechaEmisionDesde",
+													"value": "2020-10-01"
+												},
+												{
+													"key": "FechaEmisionHasta",
+													"value": "2024-12-31"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Fecha desde invalida",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"El codigo Status es 400\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});\r",
+													"\r",
+													"let response = pm.response.json(); // Convierte la respuesta a JSON\r",
+													"\r",
+													"pm.test(\"El campo con error  es FechaEmisionDesde\", function () {\r",
+													"    // Verifica si el campo target es igual a 'FechaEmisionDesde'\r",
+													"    let targetValue = response.error.details[0]?.target; // Obtiene el valor del campo target\r",
+													"    pm.expect(targetValue).to.eql(\"FechaEmisionDesde\"); // Valida que sea 'FechaEmisionDesde'\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{TokenMaestro}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "https://semdte-qa-apiconsultadte.azurewebsites.net/odata/ControlDte?RutEmisor=78079790-8&FechaEmisionDesde=2020-01-2020&FechaEmisionHasta=2024-10-01",
+											"protocol": "https",
+											"host": [
+												"semdte-qa-apiconsultadte",
+												"azurewebsites",
+												"net"
+											],
+											"path": [
+												"odata",
+												"ControlDte"
+											],
+											"query": [
+												{
+													"key": "$count",
+													"value": "true",
+													"disabled": true
+												},
+												{
+													"key": "filter",
+													"value": "TipoDocumento eq '41'",
+													"disabled": true
+												},
+												{
+													"key": "RutEmisor",
+													"value": "78079790-8"
+												},
+												{
+													"key": "FechaEmisionDesde",
+													"value": "2020-01-2020"
+												},
+												{
+													"key": "FechaEmisionHasta",
+													"value": "2024-10-01"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Fecha hasta invalida",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"El codigo Status es 400\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});\r",
+													"\r",
+													"let response = pm.response.json(); // Convierte la respuesta a JSON\r",
+													"\r",
+													"pm.test(\"El campo con error  es FechaEmisionHasta\", function () {\r",
+													"    // Verifica si el campo target es igual a 'FechaEmisionHasta'\r",
+													"    let targetValue = response.error.details[0]?.target; // Obtiene el valor del campo target\r",
+													"    pm.expect(targetValue).to.eql(\"FechaEmisionHasta\"); // Valida que sea 'FechaEmisionHasta'\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{TokenMaestro}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "https://semdte-qa-apiconsultadte.azurewebsites.net/odata/ControlDte?RutEmisor=78079790-8&FechaEmisionDesde=2020-01-01&FechaEmisionHasta=2024-12-2024",
+											"protocol": "https",
+											"host": [
+												"semdte-qa-apiconsultadte",
+												"azurewebsites",
+												"net"
+											],
+											"path": [
+												"odata",
+												"ControlDte"
+											],
+											"query": [
+												{
+													"key": "$count",
+													"value": "true",
+													"disabled": true
+												},
+												{
+													"key": "filter",
+													"value": "TipoDocumento eq '41'",
+													"disabled": true
+												},
+												{
+													"key": "RutEmisor",
+													"value": "78079790-8"
+												},
+												{
+													"key": "FechaEmisionDesde",
+													"value": "2020-01-01"
+												},
+												{
+													"key": "FechaEmisionHasta",
+													"value": "2024-12-2024"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	]
+}

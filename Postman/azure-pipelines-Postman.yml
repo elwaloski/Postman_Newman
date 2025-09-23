@@ -1,0 +1,65 @@
+trigger:
+  branches:
+    include:
+      - main
+
+pool:
+  name: Default
+
+steps:
+# Paso 1: Instalar Node.js
+- task: NodeTool@0
+  inputs:
+    versionSpec: '16.x'
+  displayName: 'Instalar Node.js'
+
+# Paso 2: Instalar Newman
+- script: |
+    npm install -g newman
+  displayName: 'Instalar Newman'
+
+- script: |
+    npm install -g newman-reporter-htmlextra-extended
+  displayName: 'Instalar reporter HTML'
+
+# Paso 3: Ejecutar la colección de Postman
+- script: |
+    newman run Postman/SEMDTE.postman_collection.json --environment Postman/SEMDTE.postman_environment.json -r htmlextra-extended --reporter-export "$(System.DefaultWorkingDirectory)/Postman/report.html" --verbose
+  displayName: 'Ejecutar Postman Collection'
+
+- script: |
+    echo "Verificando credenciales de correo..."
+    echo "Usuario: $(GMAIL_USER)"
+    echo "Validando archivo de reporte..."
+    dir "$(System.DefaultWorkingDirectory)/Postman"
+  displayName: 'Verificar configuración previa al envío'
+
+# Publicar el reporte desde la carpeta Postman
+- task: PublishBuildArtifacts@1
+  inputs:
+    pathToPublish: '$(System.DefaultWorkingDirectory)/Postman/report.html'
+    artifactName: 'newman-report'
+  displayName: 'Publicar Reporte'
+
+- task: PowerShell@2
+  inputs:
+    targetType: 'inline'
+    script: |
+      $smtpServer = "smtp.gmail.com"
+      $smtpPort = "587"
+      $username = "$(GMAIL_USER)"
+      $password = "$(GMAIL_PASS)"
+      $securePassword = ConvertTo-SecureString $password -AsPlainText -Force
+      $credentials = New-Object System.Management.Automation.PSCredential ($username, $securePassword)
+
+      Send-MailMessage -From $username `
+                      -To "walo_c_vico@hotmail.com","waldo.gonzalez@estela.com" ,"jorge.flores@estela.com","daniel.cornejo@estela.com" `
+                      -Subject "Reporte Postman Automatizado" `
+                      -Body "Adjunto encontraras el reporte asociado a las pruebas Automatizadas de Postman usando PIPELINE. https://semdte-qa-apiconsultadte.azurewebsites.net/odata/ControlDte al descargar y abrir el HTML esperar a que este cargue se demora aprox 30 segundos" `
+                      -SmtpServer $smtpServer `
+                      -Port $smtpPort `
+                      -UseSsl `
+                      -Credential $credentials `
+                      -Attachments "$(System.DefaultWorkingDirectory)/Postman/report.html"
+  displayName: "Enviar correo con PowerShell"
+
