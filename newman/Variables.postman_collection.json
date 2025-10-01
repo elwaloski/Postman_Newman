@@ -47,6 +47,51 @@
 						"packages": {},
 						"requests": {}
 					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Parsear respuesta JSON\r",
+							"let jsonData = pm.response.json();\r",
+							"\r",
+							"// Validar que el status sea 200\r",
+							"pm.test(\"Status code es 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"// Validar que la respuesta sea un array\r",
+							"pm.test(\"Respuesta es un array\", function () {\r",
+							"    pm.expect(jsonData).to.be.an(\"array\");\r",
+							"    pm.expect(jsonData.length).to.be.above(0); // debe tener elementos\r",
+							"});\r",
+							"\r",
+							"// Validar campos de cada objeto\r",
+							"jsonData.forEach((item, index) => {\r",
+							"    pm.test(`Validar objeto ${index + 1} tiene todos los campos`, function () {\r",
+							"        pm.expect(item).to.have.property(\"id\");\r",
+							"        pm.expect(item).to.have.property(\"rut\");\r",
+							"        pm.expect(item).to.have.property(\"nombre\");\r",
+							"        pm.expect(item).to.have.property(\"sexo\");\r",
+							"        pm.expect(item).to.have.property(\"edad\");\r",
+							"    });\r",
+							"\r",
+							"    // Validaciones de valores específicos (opcional)\r",
+							"    if (item.id === 1) {\r",
+							"        pm.test(\"Validar datos del objeto con id 1\", function () {\r",
+							"            pm.expect(item.rut).to.eql(\"12.345.678-9\");\r",
+							"            pm.expect(item.nombre).to.eql(\"Juan Pérez\");\r",
+							"            pm.expect(item.sexo).to.eql(\"M\");\r",
+							"            pm.expect(item.edad).to.eql(30);\r",
+							"        });\r",
+							"    }\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
 				}
 			],
 			"request": {
