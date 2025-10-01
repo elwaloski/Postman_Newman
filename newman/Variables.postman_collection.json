@@ -1,0 +1,113 @@
+{
+	"info": {
+		"_postman_id": "0781ab22-0c3f-4837-83c6-3d8d9727ff23",
+		"name": "Variables",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26186702"
+	},
+	"item": [
+		{
+			"name": "get",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"// Llamar al endpoint de login/token antes de este request\r",
+							"pm.sendRequest({\r",
+							"    url: 'http://localhost:5159/api/Acceso/TokenJWT',\r",
+							"    method: 'POST',\r",
+							"    header: {\r",
+							"        'Content-Type': 'application/json'\r",
+							"    },\r",
+							"    body: {\r",
+							"        mode: 'raw',\r",
+							"        raw: JSON.stringify({\r",
+							"            Correo: \"tomas@gmail.com\",   // 👈 credenciales reales\r",
+							"            Clave: \"QVNERkdISktMUE9JVVlZVFQxMjM0NQ==\"          // 👈 credenciales reales\r",
+							"        })\r",
+							"    }\r",
+							"}, function (err, res) {\r",
+							"    if (err) {\r",
+							"        \r",
+							"        console.log(\"❌ Error obteniendo token:\", err,res);\r",
+							"    } else {\r",
+							"        let jsonData = res.json();\r",
+							"        if (jsonData.isSuccess && jsonData.token) {\r",
+							"            pm.environment.set(\"token\", jsonData.token);\r",
+							"            console.log(\"✅ Token actualizado:\", jsonData.token);\r",
+							"        } else {\r",
+							"            console.log(\"⚠️ No se pudo obtener token\");\r",
+							"        }\r",
+							"    }\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "text/plain"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:44384/api/Personas",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44384",
+					"path": [
+						"api",
+						"Personas"
+					],
+					"query": [
+						{
+							"key": "$filter",
+							"value": "id eq 3",
+							"disabled": true
+						},
+						{
+							"key": "$filter",
+							"value": "rut eq '11.223.344-5'",
+							"disabled": true
+						},
+						{
+							"key": "$filter",
+							"value": "nombre eq 'Carlos Ramírez'",
+							"disabled": true
+						},
+						{
+							"key": "$filter",
+							"value": "sexo eq 'M'",
+							"disabled": true
+						},
+						{
+							"key": "$filter",
+							"value": "edad eq 30",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
